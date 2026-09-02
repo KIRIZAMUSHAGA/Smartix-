@@ -1,5 +1,11 @@
 const path = require('path');
 
+// Chemin réservé au WebSocket de hot reload de webpack.
+// Le backend utilise déjà /ws pour ses WebSockets applicatifs : les séparer
+// évite que le client CRA tente de parler au serveur Socket.IO avec le mauvais
+// protocole et produise « Invalid frame header ».
+const DEV_HMR_WEBSOCKET_PATH = '/__webpack_hmr';
+
 module.exports = {
   babel: {
     presets: [
@@ -9,6 +15,19 @@ module.exports = {
   },
   devServer: (devServerConfig) => {
     devServerConfig.allowedHosts = 'all';
+    devServerConfig.client = {
+      ...(devServerConfig.client || {}),
+      webSocketURL: {
+        ...(devServerConfig.client?.webSocketURL || {}),
+        pathname: DEV_HMR_WEBSOCKET_PATH,
+      },
+    };
+    devServerConfig.webSocketServer = {
+      type: 'ws',
+      options: {
+        path: DEV_HMR_WEBSOCKET_PATH,
+      },
+    };
     devServerConfig.headers = {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
