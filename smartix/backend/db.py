@@ -14,6 +14,18 @@ def _normalize_mongo_url(raw_url: str) -> str:
     if not raw_url:
         return ''
 
+    # Les URI copiées depuis un chat ou un gestionnaire de secrets peuvent
+    # contenir un marqueur Unicode invisible en fin de chaîne, ce qui rend la
+    # liste d'options MongoDB invalide.
+    raw_url = ''.join(
+        char for char in raw_url.strip().strip('`"\'')
+        if not char.isspace() and ord(char) not in {
+            0x061C, 0x200B, 0x200C, 0x200D, 0x200E, 0x200F,
+            0x202A, 0x202B, 0x202C, 0x202D, 0x202E, 0x2066,
+            0x2067, 0x2068, 0x2069, 0xFEFF,
+        }
+    )
+
     parsed = urlsplit(raw_url)
     if parsed.scheme not in ('mongodb', 'mongodb+srv') or not parsed.username:
         return raw_url

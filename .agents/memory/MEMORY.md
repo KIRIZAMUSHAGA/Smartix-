@@ -1,2 +1,3 @@
 - [Smartix dependency firewall](smartix-dependency-firewall.md) — frontend installs require safe overrides for blocked legacy transitive packages.
 - [Smartix preview routing](smartix-preview-routing.md) — the frontend must be registered as a root web artifact, not only as a regular workflow.
+- [MongoDB URI sanitization](mongo-uri-sanitization.md) — Atlas URIs copied from chat may need credential escaping and invisible-character cleanup.
