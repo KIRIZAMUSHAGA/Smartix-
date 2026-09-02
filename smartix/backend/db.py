@@ -4,13 +4,43 @@ from motor.motor_asyncio import AsyncIOMotorClient, AsyncIOMotorDatabase
 from pymongo import ASCENDING, DESCENDING, TEXT
 from contextlib import asynccontextmanager
 from typing import Optional
+from urllib.parse import quote, urlsplit, urlunsplit
 
 # Configuration MongoDB
 _raw_mongo_url = os.getenv('MONGO_URL', '')
-if 'mongodb' in _raw_mongo_url:
-    MONGO_URL: str = 'mongodb' + _raw_mongo_url.split('mongodb', 1)[1]
-else:
-    MONGO_URL: str = ''
+
+def _normalize_mongo_url(raw_url: str) -> str:
+    """Escape MongoDB credentials while preserving an already valid URI."""
+    if not raw_url:
+        return ''
+
+    parsed = urlsplit(raw_url)
+    if parsed.scheme not in ('mongodb', 'mongodb+srv') or not parsed.username:
+        return raw_url
+
+    try:
+        host = parsed.hostname or ''
+        if ':' in host and not host.startswith('['):
+            host = f'[{host}]'
+        if parsed.port:
+            host = f'{host}:{parsed.port}'
+    except ValueError:
+        # Let Motor return its normal URI error for malformed non-credential URLs.
+        return raw_url
+
+    userinfo = quote(parsed.username, safe='')
+    if parsed.password is not None:
+        userinfo += f':{quote(parsed.password, safe="")}'
+
+    return urlunsplit((
+        parsed.scheme,
+        f'{userinfo}@{host}',
+        parsed.path,
+        parsed.query,
+        parsed.fragment,
+    ))
+
+MONGO_URL: str = _normalize_mongo_url(_raw_mongo_url)
 DB_NAME: str = os.getenv('DB_NAME', 'smartohada')
 
 # Global database instance
