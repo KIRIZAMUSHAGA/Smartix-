@@ -1,0 +1,22 @@
+{
+  "id": "fun__coeur_feu__v1",
+  "title": "Cœur Feu",
+  "category": "fun",
+  "tags": [
+    "emotion",
+    "amour"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 400,
+  "defaultHeight": 400,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

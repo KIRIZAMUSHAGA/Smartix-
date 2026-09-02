@@ -1,0 +1,210 @@
+{
+  "community": {
+    "composer": {
+      "placeholder": "What's new, prof?",
+      "viewProfile": "View my profile"
+    },
+    "stories": {
+      "yourStory": "Your Story"
+    },
+    "post": {
+      "share": "Share",
+      "comment": "Comment",
+      "like": "Like",
+      "recently": "Recently",
+      "userDefault": "User"
+    },
+    "error": "Impossible to load content.",
+    "empty": "Nothing to see here for now. Start the discussion! 🚀",
+    "published": "Published!",
+    "shareSoon": "Sharing soon available"
+  },
+  "courses": {
+    "back": "Back",
+    "addCourse": "Add a course",
+    "title": "My Courses",
+    "subtitle": "All your subjects",
+    "searchPlaceholder": "Search for a course...",
+    "progression": {
+      "title": "Your progress",
+      "resume": "Resume course"
+    },
+    "book": {
+      "chapters": "chapters",
+      "open": "Open book"
+    },
+    "empty": {
+      "title": "No courses found",
+      "desc": "Try again with other keywords"
+    },
+    "modal": {
+      "title": "Create a course",
+      "placeholderTitle": "Course title",
+      "placeholderDesc": "Description",
+      "cancel": "Cancel",
+      "create": "Create"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "categories": {
+      "all": "All",
+      "accounting": "Accounting",
+      "it": "IT",
+      "maths": "Maths",
+      "physics": "Physics",
+      "chemistry": "Chemistry",
+      "literature": "Literature"
+    }
+  },
+  "home": {
+    "welcome": "Hi",
+    "tagline": "Your journey of academic excellence",
+    "tagline2": "in all subjects 🌍",
+    "startCourse": "Start a course",
+    "talkToAI": "Talk to AI",
+    "searchPlaceholder": "Search for a course...",
+    "searchButton": "Search",
+    "progression": "Your Progress",
+    "dailyGoal": "today",
+    "currentLevel": "Current Level",
+    "level": "Level",
+    "nextLevelPoints": "points for level",
+    "dailyGoalTitle": "Daily Goal",
+    "remainingExercises": "remaining exercises",
+    "stats": {
+      "totalPoints": "Total Points",
+      "badges": "Badges",
+      "completed Courses": "Completed Courses",
+      "successfulExercises": "Successful Exercises"
+    },
+    "encouragement": {
+      "title": "Keep it up!",
+      "description": "You are progressing in all your subjects. Complete your goals to earn more rewards."
+    },
+    "actions": {
+      "ai": { "label": "AI Assistant", "desc": "Ask your questions" },
+      "courses": { "label": "Your Courses", "desc": "Manage your subjects" },
+      "community": { "label": "Community", "desc": "Connect" },
+      "store": { "label": "Smart Store", "desc": "Discover the store" }
+    },
+    "learnMore": "Learn more"
+  },
+  "landing": {
+    "badge": "#1 Educational Platform in Africa",
+    "hero": {
+      "title": "Learn, practice and",
+      "italic": "connect",
+      "subtitle": "with the education of tomorrow",
+      "description": "Smartix combines artificial intelligence, interactive courses and social network to revolutionize learning across Africa.",
+      "startFree": "Get Started for Free",
+      "learnMore": "Learn More"
+    },
+    "stats": {
+      "activeStudents": "Active Students",
+      "booksCourses": "Books & Courses",
+      "successRate": "Success Rate"
+    },
+    "header": {
+      "login": "Login"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "tagline": "Manage your Smartix preferences",
+    "sections": {
+      "appearance": "Appearance",
+      "language": "Language & Region",
+      "notifications": "Notifications",
+      "content": "Content & Preferences",
+      "performance": "Data & Performance",
+      "accessibility": "Accessibility"
+    },
+    "appearance": {
+      "displayMode": "Display Mode",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "Auto",
+      "textSize": "Text Size",
+      "textSmall": "Small",
+      "textNormal": "Normal",
+      "textLarge": "Large",
+      "animations": "Animations"
+    },
+    "security": {
+      "title": "Security & Privacy",
+      "desc": "To change your password or manage your active sessions, go to the section",
+      "link": "Security"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "community": "Community",
+    "news": "News",
+    "store": "Store"
+  },
+  "news": {
+    "title": "News",
+    "subtitle": "Academic info in real time",
+    "searchPlaceholder": "Search in news...",
+    "searchButton": "Search",
+    "loading": "Loading...",
+    "load_error": "Unable to load news. Please try again later.",
+    "read": "Read",
+    "show_filters": "Filters",
+    "hide_filters": "Hide filters",
+    "language": "Language",
+    "country": "Country",
+    "category": "Category",
+    "categories": {
+      "all": "All news",
+      "fr": "French",
+      "cd": "RD Congo",
+      "en": "English"
+    },
+    "empty": {
+      "title": "No news",
+      "desc": "Try again later or change filter"
+    }
+  },
+  "store": {
+    "title": "Smartix Store",
+    "subtitle": "Discover training, books and digital courses",
+    "searchPlaceholder": "Search products...",
+    "filters": "Filters",
+    "addToCart": "Add to cart",
+    "cart": {
+      "title": "Cart",
+      "total": "Total",
+      "checkout": "Order now",
+      "empty": "Your cart is empty"
+    },
+    "stats": {
+      "products": "Products",
+      "trending": "Trending now",
+      "top Rated": "Top Rated"
+    },
+    "categories": {
+      "badges": "Badges",
+      "boosters": "Boosters",
+      "customization": "Customization"
+    },
+    "products": {
+      "premium": {
+        "name": "Premium Badge",
+        "desc": "Discover training, books and digital courses"
+      },
+      "speed": {
+        "name": "Speed Boost",
+        "desc": "Speed up your learning with our premium tools"
+      },
+      "success": {
+        "name": "Success Frame",
+        "desc": "Display your achievements with elegance"
+      }
+    }
+  }
+}

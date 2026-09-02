@@ -1,0 +1,262 @@
+/* Welcome Page Styles */
+.welcome-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 0.5rem;
+  padding-bottom: 5rem;
+  position: relative;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Bouton fermeture welcome */
+.welcome-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 30;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.welcome-close-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .welcome-page {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-page {
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .welcome-page {
+    padding-bottom: 5rem;
+  }
+}
+
+/* Header with Icon */
+.welcome-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  margin-top: 0; /* Réinitialisé pour éviter que ce soit coupé */
+}
+
+.welcome-icon-container {
+  width: 160px;
+  height: 160px;
+  background: transparent;
+  border: none;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.welcome-logo-s {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+}
+
+/* Content Section */
+.welcome-content {
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.welcome-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.welcome-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Form Section */
+.welcome-form {
+  animation: slideUp 0.6s ease-out 0.4s both;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.welcome-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ff6b35 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  opacity: 1 !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+  visibility: visible !important;
+}
+
+.welcome-input {
+  width: 100%;
+  padding: 1rem 0;
+  height: auto;
+  font-size: 1.75rem;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.welcome-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.welcome-input:focus {
+  background: transparent !important;
+  border-bottom-color: #ff6b35 !important;
+  box-shadow: none !important;
+}
+
+/* Action Container */
+.welcome-action-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 20;
+}
+
+.welcome-next-button {
+  width: auto;
+  min-width: 120px;
+  height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ff6b35 !important;
+  color: white !important;
+  border-radius: 22px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.welcome-next-button.hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  pointer-events: none;
+}
+
+.welcome-next-button.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.welcome-next-button:hover:not(:disabled) {
+  background: #ff8c61 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+}
+
+.welcome-error {
+  font-size: 0.85rem;
+  color: #ef4444;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.welcome-footer {
+  display: flex;
+  justify-content: center;
+  animation: slideUp 0.6s ease-out 0.6s both;
+}
+
+.welcome-footer-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Animations */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .welcome-page {
+    padding: 1.5rem 0;
+  }
+
+  .welcome-icon-container {
+    width: 64px;
+    height: 64px;
+  }
+
+  .welcome-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .welcome-title {
+    font-size: 1.5rem;
+  }
+}

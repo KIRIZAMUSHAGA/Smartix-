@@ -1,0 +1,162 @@
+/* frontend/src/styles/video.css */
+/* Styles pour la migration single-player (Phase 2) */
+
+.video-slot {
+  scroll-snap-align: start;
+  position: relative;
+  background: #000;
+}
+
+.video-poster {
+  transition: opacity 0.3s ease;
+}
+
+.video-slot .video-poster {
+  opacity: 1;
+}
+
+.video-slot .video-info {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.video-loading-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.video-loading-indicator .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: video-spin 0.8s linear infinite;
+}
+
+@keyframes video-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.video-stats {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.video-viewport {
+  pointer-events: none;
+}
+
+/* ============================= */
+/* Phase 3 — Viewport unique     */
+/* ============================= */
+
+.video-buffering-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 20;
+  color: white;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.spinner-large {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: video-spin 0.8s linear infinite;
+}
+
+.video-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  z-index: 25;
+}
+
+.video-progress-fill {
+  height: 100%;
+  background: #a78bfa;
+  transition: width 0.1s linear;
+}
+
+.video-mute-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 25;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.video-mute-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.loading-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px;
+  color: #888;
+}
+
+/* Amélioration scroll snap pour la liste */
+.clips-list {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.video-slot {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+@media (max-width: 768px) {
+  .video-mute-btn {
+    bottom: 16px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .video-info h3 {
+    font-size: 16px;
+  }
+
+  .video-info p {
+    font-size: 12px;
+  }
+}

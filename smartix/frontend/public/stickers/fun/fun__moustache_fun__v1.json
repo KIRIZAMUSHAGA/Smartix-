@@ -1,0 +1,21 @@
+{
+  "id": "fun__moustache_fun__v1",
+  "title": "Moustache Fun",
+  "category": "fun",
+  "tags": [
+    "emotion"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 300,
+  "defaultHeight": 120,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

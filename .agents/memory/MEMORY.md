@@ -1,0 +1,1 @@
+- [Smartix dependency firewall](smartix-dependency-firewall.md) — frontend installs require safe overrides for blocked legacy transitive packages.

@@ -1,0 +1,42 @@
+import React from 'react';
+
+/**
+ * PostBgLayer - Couche dédiée au rendu des arrière-plans isolés
+ * Respecte les règles de verrouillage : z-index le plus bas, isolation
+ */
+const PostBgLayer = ({ post }) => {
+  const hasBgCss = !!post.background_css;
+  const hasBgImg = !!post.background_image;
+
+  if (!hasBgCss && !hasBgImg) return null;
+
+  const style = {
+    position: 'absolute',
+    inset: 0,
+    zIndex: 0, // Remis à 0 car AdaptivePostCard a maintenant bg-white conditionnel
+    pointerEvents: 'none',
+    width: '100%',
+    height: '100%',
+  };
+
+  if (hasBgCss) {
+    style.background = post.background_css;
+    // Log pour débogage
+    console.log('🖼️ [PostBgLayer] Applying CSS background:', post.background_css);
+  } else if (hasBgImg) {
+    style.backgroundImage = `url(${post.background_image})`;
+    style.backgroundSize = 'cover';
+    style.backgroundPosition = 'center';
+    console.log('🖼️ [PostBgLayer] Applying Image background:', post.background_image);
+  }
+
+  return (
+    <div 
+      className="post-bg-layer absolute inset-0 w-full h-full" 
+      style={style}
+      aria-hidden="true"
+    />
+  );
+};
+
+export default PostBgLayer;

@@ -1,0 +1,227 @@
+/* Mobile Menu - Full screen fixed */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100dvh;
+  background: #14141e;
+  backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  animation: fadeIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Menu Header */
+.mobile-menu-header {
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.mobile-menu-brand {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #ff6b35;
+  letter-spacing: -0.04em;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-tagline {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Menu Sections */
+.mobile-menu-section {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.mobile-menu-section:last-child {
+  border-bottom: none;
+}
+
+/* Menu Items */
+.mobile-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  width: 100%;
+  position: relative;
+}
+
+.mobile-menu-item:hover {
+  background: rgba(255, 107, 53, 0.1);
+  color: #ff6b35;
+  padding-left: 1.75rem;
+}
+
+.mobile-menu-item svg {
+  flex-shrink: 0;
+  color: #ff6b35;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-item:hover svg {
+  transform: translateX(4px);
+}
+
+/* Account Section */
+.mobile-menu-account {
+  flex-shrink: 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
+  background: #14141e;
+}
+
+.mobile-menu-auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.mobile-menu-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem;
+  border-radius: 10px;
+  border: 1.5px solid;
+  background: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Login / Sign up buttons */
+.mobile-menu-auth-btn.login-btn {
+  color: #ff6b35;
+  border-color: #ff6b35;
+}
+.mobile-menu-auth-btn.login-btn:hover {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: #ff8c61;
+  color: #ff8c61;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-auth-btn.signup-btn {
+  color: rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 107, 53, 0.15);
+}
+.mobile-menu-auth-btn.signup-btn:hover {
+  background: rgba(255, 107, 53, 0.25);
+  border-color: #ff6b35;
+  color: #ff6b35;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Logged in buttons */
+.mobile-menu-auth-btn.access-btn {
+  color: #00b894;
+  border-color: #00b894;
+  background: rgba(0, 184, 148, 0.1);
+}
+.mobile-menu-auth-btn.access-btn:hover {
+  background: rgba(0, 184, 148, 0.2);
+  border-color: #00d4aa;
+  color: #00d4aa;
+  transform: translateY(-2px);
+}
+
+.mobile-menu-auth-btn.profile-btn,
+.mobile-menu-auth-btn.settings-btn {
+  color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.mobile-menu-auth-btn.profile-btn:hover,
+.mobile-menu-auth-btn.settings-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-auth-btn.logout-btn {
+  color: rgba(255, 107, 107, 0.9);
+  border-color: rgba(255, 107, 107, 0.5);
+  margin-top: 0.5rem;
+}
+.mobile-menu-auth-btn.logout-btn:hover {
+  background: rgba(255, 107, 107, 0.1);
+  border-color: rgba(255, 107, 107, 0.8);
+  color: #ff6b6b;
+  transform: translateY(-2px);
+}
+
+/* Desktop — hide mobile menu */
+@media (min-width: 769px) {
+  .mobile-menu,
+  .mobile-menu-overlay {
+    display: none;
+  }
+}

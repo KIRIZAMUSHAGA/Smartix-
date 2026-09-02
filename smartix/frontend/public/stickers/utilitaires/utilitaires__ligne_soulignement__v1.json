@@ -1,0 +1,21 @@
+{
+  "id": "utilitaires__ligne_soulignement__v1",
+  "title": "Ligne Soulignement",
+  "category": "utilitaires",
+  "tags": [
+    "line"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 500,
+  "defaultHeight": 50,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

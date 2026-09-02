@@ -1,0 +1,21 @@
+{
+  "id": "utilitaires__coeur_simple__v1",
+  "title": "Cœur Simple",
+  "category": "utilitaires",
+  "tags": [
+    "shape"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 350,
+  "defaultHeight": 350,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

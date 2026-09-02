@@ -1,0 +1,21 @@
+{
+  "id": "stories__date_tag__v1",
+  "title": "Date Tag",
+  "category": "stories",
+  "tags": [
+    "info"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 300,
+  "defaultHeight": 150,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

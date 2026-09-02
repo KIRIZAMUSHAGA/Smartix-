@@ -1,0 +1,21 @@
+{
+  "id": "stories__localisation_pin__v1",
+  "title": "Localisation Pin",
+  "category": "stories",
+  "tags": [
+    "voyage"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 250,
+  "defaultHeight": 350,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

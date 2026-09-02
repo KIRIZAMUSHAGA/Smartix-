@@ -1,45 +1,26 @@
-# [Project name]
+# Smartix
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Smartix est une plateforme francophone pour apprendre, créer, partager et vendre, avec un espace de programmation assistée par IA.
 
-## Run & Operate
+## Lancement
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `Smartix Frontend` — démarre React/CRACO sur le port 5000
+- `Smartix Backend` — démarre FastAPI/Uvicorn sur le port 8000
+- Frontend : `cd smartix/frontend && npm start`
+- Backend : `cd smartix/backend && PYTHONPATH=/home/runner/workspace/smartix/backend:/home/runner/workspace/.pythonlibs python -m uvicorn server:app --host 0.0.0.0 --port 8000
 
-## Stack
+## Structure
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- `smartix/frontend/` — application React, pages, composants et module Vibe-Coding
+- `smartix/backend/` — API FastAPI, authentification, services et routeurs
+- `smartix/backend/requirements.txt` — dépendances Python
+- `smartix/frontend/package.json` — dépendances et scripts frontend
 
-## Where things live
+## Variables d’environnement
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+Le backend peut utiliser MongoDB, Redis, OpenAI, Stripe, Firebase et les services de déploiement selon les fonctionnalités activées. Les secrets doivent être ajoutés via les Secrets Replit, jamais dans les fichiers versionnés.
 
-## Architecture decisions
+## Notes
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
-
-## Gotchas
-
-_Populate as you build — sharp edges, "always run X before Y" rules._
-
-## Pointers
-
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Le dépôt original a été importé sous `smartix/` sans son historique Git interne ni ses fichiers `.env`.
+- Le backend démarre même lorsque MongoDB ou Redis ne sont pas disponibles, mais les fonctions qui en dépendent resteront limitées.

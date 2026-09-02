@@ -1,0 +1,255 @@
+/* Styles shared with RegistrationFlow.css for visual consistency */
+.registration-dialog {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+  color: white;
+}
+
+.registration-content {
+  padding-top: 1rem !important;
+}
+
+.registration-header {
+  display: none;
+}
+
+.registration-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.registration-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35 0%, #ff8c61 100%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Login Header Styling */
+.login-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.login-icon-container {
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  margin: 0 auto 0.75rem;
+  animation: bounceIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.login-logo-s {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.login-title {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.login-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* Login Form Fields */
+.login-form-fields {
+  animation: slideUp 0.6s ease-out 0.4s both;
+  space-y: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.login-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #ff6b35 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  opacity: 1 !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+  visibility: visible !important;
+}
+
+.login-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-forgot-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-forgot-btn:hover {
+  color: #ff6b35;
+}
+
+.login-input-wrapper {
+  position: relative;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.login-input-wrapper:focus-within {
+  border-bottom-color: #ff6b35;
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.75rem 0;
+  height: auto;
+  font-size: 1.125rem;
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.login-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.login-input:focus {
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.login-eye-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-eye-btn:hover {
+  color: #ff6b35;
+}
+
+.login-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.login-checkbox-input {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  accent-color: #ff6b35;
+}
+
+.login-checkbox-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-checkbox-label:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease forwards;
+}
+
+/* Close Button Styling */
+.registration-dialog [role="dialog"] button[aria-label="Close"],
+.registration-dialog [role="dialog"] > button {
+  position: absolute !important;
+  right: 1rem !important;
+  top: 1rem !important;
+  z-index: 100 !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  padding: 0.25rem !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.registration-dialog [role="dialog"] button[aria-label="Close"]:hover,
+.registration-dialog [role="dialog"] > button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.registration-dialog [role="dialog"] button[aria-label="Close"] svg,
+.registration-dialog [role="dialog"] > button svg {
+  width: 1rem !important;
+  height: 1rem !important;
+}

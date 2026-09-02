@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#ff6b35" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Icônes -->
+    <link rel="icon" href="/smartix-logo-original.png" />
+
+    <!-- SEO -->
+    <meta name="description" content="Smartix - Plateforme tout-en-un pour apprendre, créer, partager et vendre." />
+    <title>Smartix</title>
+
+    <!-- Preload -->
+    <link rel="preload" as="image" href="/smartix-logo.png" fetchpriority="high" />
+    <script>
+        window.__SMARTIX_ERUDA_READY__ = true;
+    </script>
+
+    <style>
+        /* ============================= */
+        /* 🚀 SMARTIX SIGNATURE ANIMATION */
+        /* ============================= */
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .static-loader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fef9f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .static-loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        /* 🔥 Titre Smartix avec dégradé animé */
+        .smartix-title {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 1px;
+
+            background: linear-gradient(135deg, #ff6b35, #ff9a5c, #ff6b35);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+
+            opacity: 0;
+            transform: scale(0.95);
+            will-change: transform, opacity;
+
+            animation:
+                reveal 0.7s ease-out forwards,
+                gradient 4s linear infinite 0.7s;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: scale(0.95) translateY(6px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes gradient {
+            from { background-position: 0% 50%; }
+            to { background-position: 100% 50%; }
+        }
+
+        /* Sous-titre */
+        .smartix-subtitle {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #888;
+            opacity: 0;
+            transform: translateY(6px);
+            animation: fadeSub 0.5s ease-out 0.3s forwards;
+        }
+
+        @keyframes fadeSub {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loader dots */
+        .dots {
+            margin-left: 4px;
+        }
+
+        /* ✅ Accessibilité */
+        @media (prefers-reduced-motion: reduce) {
+            .smartix-title,
+            .smartix-subtitle {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            .smartix-title {
+                background: #ff6b35;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="static-loader" id="loader">
+    <div class="loader-content">
+        <h1 class="smartix-title">Smartix</h1>
+        <p class="smartix-subtitle">
+            Apprendre • Créer • Partager • Vendre • S'informer
+            <span class="dots" id="dots"></span>
+        </p>
+    </div>
+</div>
+
+<!-- ✅ Root principal pour l'application React -->
+<div id="root"></div>
+
+<!-- ✅ Root dédié pour les modals (portails) -->
+<div id="modal-root"></div>
+
+<script>
+/* ============================= */
+/* ⚙️ Loader intelligent */
+/* ============================= */
+
+(function () {
+    const loader = document.getElementById('loader');
+    const dots = document.getElementById('dots');
+
+    /* Animation dots (style Replit) */
+    if (dots) {
+        const states = ["", ".", "..", "..."];
+        let i = 0;
+        setInterval(() => {
+            i = (i + 1) % states.length;
+            dots.textContent = states[i];
+        }, 400);
+    }
+
+    function hideLoader() {
+        if (loader) {
+            loader.classList.add('hidden');
+        }
+    }
+
+    /* Signal principal : React prêt */
+    window.addEventListener('app-ready', hideLoader);
+
+    /* Fallback sécurité */
+    setTimeout(hideLoader, 5000);
+})();
+</script>
+
+<noscript>Active JavaScript pour utiliser l’application.</noscript>
+
+</body>
+    </html>

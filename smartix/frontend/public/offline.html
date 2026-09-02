@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hors ligne - Smartix</title>
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        .container { max-width: 400px; padding: 20px; }
+        .icon { font-size: 64px; margin-bottom: 20px; }
+        h1 { margin-bottom: 10px; }
+        p { color: #94a3b8; }
+        button {
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff6b35;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">📡</div>
+        <h1>Vous êtes hors ligne</h1>
+        <p>Vérifiez votre connexion internet et réessayez.</p>
+        <button onclick="location.reload()">Réessayer</button>
+    </div>
+</body>
+  </html>

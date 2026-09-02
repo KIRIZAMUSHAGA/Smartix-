@@ -1,0 +1,231 @@
+/* Landing Header - Modern Glass Style */
+.landing-header {
+  position: static;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.15);
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.landing-header-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: 1.5rem;
+}
+
+/* Logo styling - Improved alignment and breathing */
+.landing-header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.landing-header-logo:hover {
+  filter: brightness(1.15) drop-shadow(0 0 8px rgba(255, 107, 53, 0.3));
+  transform: scale(1.05);
+}
+
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ff6b35;
+  letter-spacing: -0.04em;
+  text-transform: capitalize;
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.landing-header-logo:hover .logo-text {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(255, 107, 53, 0.4));
+}
+
+/* Spacer */
+.landing-header-spacer {
+  flex: 1;
+}
+
+/* Menu button - Modern outline style */
+.landing-header-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.landing-header-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 107, 53, 0.5);
+  transform: scale(1.05);
+}
+
+.landing-header-menu-btn:active {
+  transform: scale(0.98);
+}
+
+/* Login button - Modern outline style */
+.landing-header-login-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.3rem;
+  background: transparent;
+  color: #ff6b35;
+  border: 1.5px solid #ff6b35;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.landing-header-login-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 107, 53, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+  z-index: 0;
+}
+
+.landing-header-login-btn:hover {
+  background: rgba(255, 107, 53, 0.1);
+  border-color: #ff8c61;
+  color: #ff8c61;
+  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.2);
+  transform: scale(1.03);
+}
+
+.landing-header-login-btn:hover::before {
+  width: 280px;
+  height: 280px;
+}
+
+.landing-header-login-btn > svg {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.landing-header-login-btn:hover > svg {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.landing-header-login-btn > span {
+  position: relative;
+  z-index: 1;
+}
+
+.landing-header-login-btn:active {
+  transform: scale(0.98);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .landing-header {
+    height: 56px;
+  }
+
+  .landing-header-container {
+    padding: 0 1.2rem;
+    gap: 1rem;
+  }
+
+  .landing-header-menu-btn {
+    display: flex;
+  }
+
+  .logo-text {
+    font-size: 2rem;
+  }
+
+  .logo-baseline {
+    display: none;
+  }
+
+  .landing-header-login-btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .landing-header-login-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-header {
+    height: 52px;
+  }
+
+  .landing-header-container {
+    padding: 0 0.9rem;
+    gap: 0.8rem;
+  }
+
+  .landing-header-menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .landing-header-menu-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logo-text {
+    font-size: 1.75rem;
+  }
+
+  .landing-header-login-btn {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .landing-header-login-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .landing-header-login-btn span {
+    display: none;
+  }
+
+  .landing-header-login-btn {
+    border-radius: 8px;
+  }
+}

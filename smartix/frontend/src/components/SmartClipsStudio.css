@@ -1,0 +1,572 @@
+/* =============================
+   SmartClipsStudio.css
+   Styles pour l'éditeur vidéo et ses composants
+   ============================= */
+
+/* =============================
+   ANIMATIONS DE BASE
+   ============================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: skew(0deg, 0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: skew(2deg, 1deg);
+    opacity: 0.8;
+  }
+  75% {
+    transform: skew(-2deg, -1deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #00FF00, 0 0 10px #00FF00;
+  }
+  50% {
+    text-shadow: 0 0 20px #00FF00, 0 0 30px #00FF00;
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* =============================
+   CLASSES D'ANIMATION
+   ============================= */
+
+.animate-fadeIn {
+  animation: fadeIn var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeft var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-slideRight {
+  animation: slideRight var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-bounce {
+  animation: bounce var(--animation-duration, 0.8s) ease-out forwards;
+}
+
+.animate-zoomIn {
+  animation: zoomIn var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-zoomOut {
+  animation: zoomOut var(--animation-duration, 0.5s) ease-out forwards;
+}
+
+.animate-rotate {
+  animation: rotate var(--animation-duration, 0.6s) ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse var(--animation-duration, 0.8s) ease-out forwards;
+}
+
+.animate-shake {
+  animation: shake var(--animation-duration, 0.4s) ease-out forwards;
+}
+
+.animate-glitch {
+  animation: glitch var(--animation-duration, 0.3s) ease-out forwards;
+}
+
+.animate-neonPulse {
+  animation: neonPulse var(--animation-duration, 1s) ease-out forwards;
+}
+
+.animate-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typewriter var(--animation-duration, 1.5s) steps(40, end) forwards;
+}
+
+/* =============================
+   ANIMATIONS MODALES
+   ============================= */
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  animation: modalSlideUp 0.3s ease-out;
+}
+
+/* =============================
+   SCROLLBAR PERSONNALISÉE
+   ============================= */
+
+/* Pour les navigateurs WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Pour Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.05);
+}
+
+/* Hide scrollbar for horizontal categories */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =============================
+   TIMELINE STYLES
+   ============================= */
+
+.timeline-track {
+  transition: background-color 0.2s ease;
+}
+
+.timeline-track:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-clip {
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.timeline-clip:hover {
+  filter: brightness(1.1);
+  transform: scaleY(1.02);
+}
+
+.timeline-clip-selected {
+  ring: 2px solid #ff6b35;
+  filter: brightness(1.1);
+}
+
+.timeline-cursor {
+  transition: left 0.05s linear;
+  will-change: left;
+}
+
+/* =============================
+   PREVIEW CANVAS
+   ============================= */
+
+.preview-canvas {
+  will-change: transform;
+  image-rendering: crisp-edges;
+}
+
+/* =============================
+   WAVEFORM STYLES
+   ============================= */
+
+.waveform-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.waveform-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.waveform-cursor {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #ff6b35;
+  pointer-events: none;
+  will-change: left;
+  transition: left 0.05s linear;
+}
+
+/* =============================
+   STICKER CUSTOMIZER
+   ============================= */
+
+.sticker-preview {
+  transition: transform 0.05s linear;
+  will-change: transform;
+  cursor: grab;
+}
+
+.sticker-preview:active {
+  cursor: grabbing;
+}
+
+/* =============================
+   AUDIO PLAYER
+   ============================= */
+
+.audio-progress {
+  transition: width 0.1s linear;
+}
+
+.audio-waveform {
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.audio-waveform:hover {
+  opacity: 1;
+}
+
+/* =============================
+   EFFECTS PANEL
+   ============================= */
+
+.effect-card {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.effect-card:hover {
+  transform: scale(1.05);
+}
+
+.effect-card-active {
+  background: linear-gradient(135deg, #005CFF, #44B0FF);
+  ring: 2px solid white;
+}
+
+/* =============================
+   QUALITY CONTROLS
+   ============================= */
+
+.quality-menu {
+  animation: slideUp 0.2s ease-out;
+}
+
+/* =============================
+   LOADING STATES
+   ============================= */
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============================
+   SKELETON LOADING
+   ============================= */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* =============================
+   TOOLTIP
+   ============================= */
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  border-radius: 6px;
+  font-size: 12px;
+  color: white;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.group:hover .tooltip {
+  opacity: 1;
+}
+
+/* =============================
+   SLIDER STYLES
+   ============================= */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  height: 4px;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #ff6b35;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: #ff6b35;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* =============================
+   UTILITAIRES
+   ============================= */
+
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+
+@media (max-width: 768px) {
+  .timeline-track {
+    height: 48px;
+  }
+  
+  .timeline-clip {
+    font-size: 10px;
+  }
+  
+  .effect-card span:first-child {
+    font-size: 20px;
+  }
+  
+  .effect-card span:last-child {
+    font-size: 10px;
+  }
+  
+  .modal-content {
+    max-width: 100%;
+    margin: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  
+  .tooltip {
+    display: none;
+  }
+}

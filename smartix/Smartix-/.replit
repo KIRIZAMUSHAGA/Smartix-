@@ -1,0 +1,56 @@
+modules = ["nodejs-20", "python-3.11"]
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "backend-main"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Main_App_Frontend_v2"
+
+[[workflows.workflow]]
+name = "backend-main"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "console"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Smartix-/backend && PYTHONPATH=/home/runner/workspace/Smartix-/backend uvicorn server:app --host 0.0.0.0 --port 8000"
+waitForPort = 8000
+
+[[workflows.workflow]]
+name = "Main_App_Frontend_v2"
+author = "agent"
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd Smartix-/frontend && npm run start"
+waitForPort = 5000
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 5001
+externalPort = 3000
+
+[[ports]]
+localPort = 8000
+externalPort = 8000

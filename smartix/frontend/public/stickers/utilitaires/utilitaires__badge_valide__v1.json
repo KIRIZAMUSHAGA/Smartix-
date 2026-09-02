@@ -1,0 +1,21 @@
+{
+  "id": "utilitaires__badge_valide__v1",
+  "title": "Badge Valide",
+  "category": "utilitaires",
+  "tags": [
+    "badge"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 250,
+  "defaultHeight": 250,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

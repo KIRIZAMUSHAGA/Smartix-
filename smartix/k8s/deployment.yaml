@@ -1,0 +1,173 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vibe-coding-api
+  namespace: vibe-coding
+  labels:
+    app: vibe-coding-api
+    version: "1.0"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vibe-coding-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: vibe-coding-api
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: "/metrics"
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: api
+        image: vibe-coding/api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+          name: http
+        env:
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: url
+        - name: REDIS_URL
+          value: redis://redis-service:6379
+        - name: CLICKHOUSE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: vibe-coding-config
+              key: clickhouse_host
+        - name: REGION
+          valueFrom:
+            configMapKeyRef:
+              name: vibe-coding-config
+              key: region
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8000
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          failureThreshold: 3
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "sleep 5"]
+
+      - name: sandbox
+        image: vibe-coding/sandbox:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: sandbox
+        env:
+        - name: MAX_CONTAINERS
+          value: "10"
+        - name: CONTAINER_TIMEOUT
+          value: "30"
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        securityContext:
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: true
+          runAsUser: 1000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vibe-coding-frontend
+  namespace: vibe-coding
+  labels:
+    app: vibe-coding-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vibe-coding-frontend
+  template:
+    metadata:
+      labels:
+        app: vibe-coding-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: vibe-coding/frontend:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+          name: http
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "250m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: vibe-coding
+  labels:
+    app: redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:7-alpine
+        ports:
+        - containerPort: 6379
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
+        volumeMounts:
+        - name: redis-data
+          mountPath: /data
+      volumes:
+      - name: redis-data
+        persistentVolumeClaim:
+          claimName: redis-pvc

@@ -1,0 +1,53 @@
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environnements virtuels
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs/
+*.log
+
+# Données locales
+uploads/
+*.db
+*.sqlite
+
+# Git
+.git/
+.gitignore
+
+# Replit
+replit.nix
+.replit
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Frontend (si séparé)
+frontend/node_modules/
+frontend/.next/
+frontend/build/
+
+# Tests
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db

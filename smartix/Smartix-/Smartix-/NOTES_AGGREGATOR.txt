@@ -1,0 +1,15 @@
+Notes & best practices:
+
+Respect robots.txt and rate limits. Throttle requests.
+
+Use caching headers and conditional GET (If-Modified-Since) to reduce bandwidth.
+
+For production: separate fetch worker (Celery + Redis) and queue system. Here APScheduler is acceptable for MVP.
+
+Monitor errors and add retry/backoff (aiohttp + exponential backoff).
+
+Rotate user-agent and consider proxy if blocked.
+
+For images: prefer downloading and serving from storage (S3 / Supabase) to avoid hotlink failures.
+
+Implement admin UI to manage sources, view errors, and force re-fetches.

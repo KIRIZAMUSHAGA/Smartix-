@@ -1,0 +1,386 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_CLICKHOUSE",
+      "label": "ClickHouse",
+      "description": "Source de données ClickHouse",
+      "type": "datasource",
+      "pluginId": "vertamedia-clickhouse-datasource"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "vertamedia-clickhouse-datasource",
+      "name": "ClickHouse",
+      "version": "3.0.0"
+    }
+  ],
+  "dashboard": {
+    "id": null,
+    "uid": "vibe-coding-main",
+    "title": "Vibe-Coding — Monitoring Production",
+    "description": "Dashboard de monitoring temps réel pour Vibe-Coding",
+    "tags": ["vibe-coding", "production", "monitoring"],
+    "timezone": "Europe/Paris",
+    "schemaVersion": 38,
+    "version": 1,
+    "refresh": "30s",
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": ["5s", "10s", "30s", "1m", "5m", "15m"]
+    },
+    "annotations": {
+      "list": [
+        {
+          "name": "Scaling Events",
+          "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+          "enable": true,
+          "rawQuery": "SELECT timestamp AS time, concat(event_type, ': ', deployment, ' ', toString(from_replicas), '→', toString(to_replicas)) AS text FROM vibe_coding.scaling_events WHERE $timeFilter ORDER BY time",
+          "iconColor": "orange",
+          "hide": false
+        }
+      ]
+    },
+    "templating": {
+      "list": [
+        {
+          "name": "region",
+          "label": "Région",
+          "type": "query",
+          "query": "SELECT DISTINCT region FROM vibe_coding.vibe_metrics",
+          "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+          "includeAll": true,
+          "allValue": ".*",
+          "multi": true,
+          "refresh": 2
+        },
+        {
+          "name": "endpoint",
+          "label": "Endpoint",
+          "type": "query",
+          "query": "SELECT DISTINCT endpoint FROM vibe_coding.performance_metrics ORDER BY endpoint",
+          "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+          "includeAll": true,
+          "allValue": ".*",
+          "multi": true,
+          "refresh": 2
+        }
+      ]
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Utilisateurs Actifs (30 min)",
+        "type": "stat",
+        "gridPos": { "x": 0, "y": 0, "w": 4, "h": 4 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT count(DISTINCT user_id) AS value FROM vibe_coding.vibe_metrics WHERE timestamp >= now() - INTERVAL 30 MINUTE AND region LIKE '$region'",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"] },
+          "colorMode": "background",
+          "graphMode": "none",
+          "textMode": "auto"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "thresholds": {
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 100 },
+                { "color": "red", "value": 500 }
+              ]
+            },
+            "mappings": [],
+            "unit": "short"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Requêtes / seconde",
+        "type": "stat",
+        "gridPos": { "x": 4, "y": 0, "w": 4, "h": 4 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT count(*) / (5 * 60.0) AS value FROM vibe_coding.performance_metrics WHERE timestamp >= now() - INTERVAL 5 MINUTE",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"] },
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "reqps",
+            "thresholds": {
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 300 },
+                { "color": "red", "value": 800 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Taux d'erreur",
+        "type": "stat",
+        "gridPos": { "x": 8, "y": 0, "w": 4, "h": 4 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT countIf(status_code >= 400) * 100.0 / count(*) AS value FROM vibe_coding.performance_metrics WHERE timestamp >= now() - INTERVAL 1 HOUR",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"] },
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "percent",
+            "thresholds": {
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 2 },
+                { "color": "red", "value": 5 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Latence P95 (ms)",
+        "type": "stat",
+        "gridPos": { "x": 12, "y": 0, "w": 4, "h": 4 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT quantile(0.95)(response_time_ms) AS value FROM vibe_coding.performance_metrics WHERE timestamp >= now() - INTERVAL 5 MINUTE",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"] },
+          "colorMode": "background"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "thresholds": {
+              "steps": [
+                { "color": "green", "value": 0 },
+                { "color": "yellow", "value": 500 },
+                { "color": "red", "value": 2000 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "Replicas actifs",
+        "type": "stat",
+        "gridPos": { "x": 16, "y": 0, "w": 4, "h": 4 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT to_replicas AS value FROM vibe_coding.scaling_events ORDER BY timestamp DESC LIMIT 1",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "reduceOptions": { "calcs": ["lastNotNull"] },
+          "colorMode": "value"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "thresholds": {
+              "steps": [
+                { "color": "green", "value": 1 },
+                { "color": "yellow", "value": 10 },
+                { "color": "red", "value": 18 }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": 6,
+        "title": "DAU — Utilisateurs Actifs par Jour",
+        "type": "timeseries",
+        "gridPos": { "x": 0, "y": 4, "w": 12, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT date AS time, dau AS value FROM vibe_coding.dau WHERE date >= today() - 30 ORDER BY time",
+            "format": "time_series",
+            "legendFormat": "DAU"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "color": { "mode": "palette-classic" },
+            "custom": { "lineInterpolation": "smooth", "fillOpacity": 20 },
+            "unit": "short"
+          }
+        },
+        "options": { "tooltip": { "mode": "single" } }
+      },
+      {
+        "id": 7,
+        "title": "Latence API dans le temps",
+        "type": "timeseries",
+        "gridPos": { "x": 12, "y": 4, "w": 12, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT toStartOfMinute(timestamp) AS time, avg(response_time_ms) AS avg_latency, quantile(0.95)(response_time_ms) AS p95_latency FROM vibe_coding.performance_metrics WHERE $timeFilter GROUP BY time ORDER BY time",
+            "format": "time_series",
+            "legendFormat": "{{metric}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "custom": { "lineInterpolation": "smooth" }
+          }
+        }
+      },
+      {
+        "id": 8,
+        "title": "Requêtes / minute par endpoint",
+        "type": "timeseries",
+        "gridPos": { "x": 0, "y": 12, "w": 16, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT toStartOfMinute(timestamp) AS time, endpoint, count(*) AS requests FROM vibe_coding.performance_metrics WHERE $timeFilter AND endpoint LIKE '$endpoint' GROUP BY time, endpoint ORDER BY time",
+            "format": "time_series",
+            "legendFormat": "{{endpoint}}"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "custom": { "lineInterpolation": "smooth" }
+          }
+        }
+      },
+      {
+        "id": 9,
+        "title": "Top 10 Endpoints",
+        "type": "table",
+        "gridPos": { "x": 16, "y": 12, "w": 8, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT endpoint, method, count(*) AS requests, round(avg(response_time_ms)) AS avg_ms, round(quantile(0.95)(response_time_ms)) AS p95_ms, round(countIf(status_code >= 400) * 100.0 / count(*), 2) AS error_pct FROM vibe_coding.performance_metrics WHERE $timeFilter GROUP BY endpoint, method ORDER BY requests DESC LIMIT 10",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "overrides": [
+            {
+              "matcher": { "id": "byName", "options": "error_pct" },
+              "properties": [
+                { "id": "unit", "value": "percent" },
+                {
+                  "id": "thresholds",
+                  "value": {
+                    "steps": [
+                      { "color": "green", "value": 0 },
+                      { "color": "red", "value": 5 }
+                    ]
+                  }
+                },
+                { "id": "custom.displayMode", "value": "color-background" }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": 10,
+        "title": "Distribution géographique des utilisateurs",
+        "type": "piechart",
+        "gridPos": { "x": 0, "y": 20, "w": 8, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT region, count(DISTINCT user_id) AS users FROM vibe_coding.vibe_metrics WHERE $timeFilter GROUP BY region ORDER BY users DESC",
+            "format": "table"
+          }
+        ],
+        "options": {
+          "pieType": "donut",
+          "displayLabels": ["name", "percent"]
+        }
+      },
+      {
+        "id": 11,
+        "title": "Événements de scaling",
+        "type": "table",
+        "gridPos": { "x": 8, "y": 20, "w": 16, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT timestamp, event_type, deployment, from_replicas, to_replicas, trigger_metric, round(trigger_value, 2) AS trigger_value, region FROM vibe_coding.scaling_events WHERE $timeFilter ORDER BY timestamp DESC LIMIT 50",
+            "format": "table"
+          }
+        ],
+        "fieldConfig": {
+          "overrides": [
+            {
+              "matcher": { "id": "byName", "options": "event_type" },
+              "properties": [
+                {
+                  "id": "mappings",
+                  "value": [
+                    { "type": "value", "options": { "scale_up": { "text": "↑ Scale Up", "color": "red" } } },
+                    { "type": "value", "options": { "scale_down": { "text": "↓ Scale Down", "color": "green" } } }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": 12,
+        "title": "Erreurs récentes",
+        "type": "logs",
+        "gridPos": { "x": 0, "y": 28, "w": 24, "h": 8 },
+        "datasource": { "type": "vertamedia-clickhouse-datasource", "uid": "${DS_CLICKHOUSE}" },
+        "targets": [
+          {
+            "rawSql": "SELECT timestamp AS time, concat('[', error_type, '] ', error_message, ' | user=', user_id, ' endpoint=', endpoint) AS content FROM vibe_coding.errors WHERE $timeFilter ORDER BY timestamp DESC LIMIT 100",
+            "format": "logs"
+          }
+        ]
+      }
+    ]
+  },
+  "overwrite": true
+}

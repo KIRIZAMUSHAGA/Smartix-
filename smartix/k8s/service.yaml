@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: vibe-coding-api
+  namespace: vibe-coding
+  labels:
+    app: vibe-coding-api
+spec:
+  selector:
+    app: vibe-coding-api
+  ports:
+  - port: 8000
+    targetPort: 8000
+    name: http
+    protocol: TCP
+  - port: 8080
+    targetPort: 8080
+    name: sandbox
+    protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: vibe-coding-frontend
+  namespace: vibe-coding
+  labels:
+    app: vibe-coding-frontend
+spec:
+  selector:
+    app: vibe-coding-frontend
+  ports:
+  - port: 3000
+    targetPort: 3000
+    name: http
+    protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-service
+  namespace: vibe-coding
+  labels:
+    app: redis
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+    protocol: TCP
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: redis-pvc
+  namespace: vibe-coding
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+  storageClassName: standard

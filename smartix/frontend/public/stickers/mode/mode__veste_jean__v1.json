@@ -1,0 +1,21 @@
+{
+  "id": "mode__veste_jean__v1",
+  "title": "Veste Jean",
+  "category": "mode",
+  "tags": [
+    "vetement"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 450,
+  "defaultHeight": 600,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

@@ -1,0 +1,17 @@
+Deployment notes:
+
+1. Add DATABASE_URL in Replit secrets.
+
+2. pip install -r backend/requirements_news.txt
+
+3. Initialize DB schema: psql $DATABASE_URL -f backend/create_news_table.sql or let SQLAlchemy create tables on first run.
+
+4. Start server: python -m app.main  OR uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+5. Ensure scheduler is running (it starts inside main.py). If Replit kills background tasks, run backend/scripts/run_scheduler.py separately using Replit scheduled task.
+
+6. To add sources: POST /api/admin/sources
+
+7. To trigger immediate fetch: POST /api/admin/fetch
+
+8. To trigger dedupe: POST /api/admin/dedupe

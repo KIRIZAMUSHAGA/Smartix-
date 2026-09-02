@@ -1,0 +1,21 @@
+{
+  "id": "lifestyle__glace__v1",
+  "title": "Glace",
+  "category": "lifestyle",
+  "tags": [
+    "food"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 250,
+  "defaultHeight": 400,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

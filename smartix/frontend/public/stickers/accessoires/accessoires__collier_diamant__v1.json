@@ -1,0 +1,23 @@
+{
+  "id": "accessoires__collier_diamant__v1",
+  "title": "Collier Diamant",
+  "category": "accessoires",
+  "tags": [
+    "bijou",
+    "mode",
+    "luxe"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 450,
+  "defaultHeight": 350,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

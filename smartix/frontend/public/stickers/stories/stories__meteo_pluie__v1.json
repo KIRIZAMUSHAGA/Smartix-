@@ -1,0 +1,21 @@
+{
+  "id": "stories__meteo_pluie__v1",
+  "title": "Météo Pluie",
+  "category": "stories",
+  "tags": [
+    "info"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 300,
+  "defaultHeight": 300,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

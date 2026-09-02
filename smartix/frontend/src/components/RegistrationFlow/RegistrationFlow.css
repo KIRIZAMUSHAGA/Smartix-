@@ -1,0 +1,126 @@
+/* Dialog Registration */
+.registration-dialog {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  box-shadow: 0 0 40px rgba(255, 107, 53, 0.2);
+}
+
+/* Header */
+.registration-header {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+/* Barre de progression */
+.registration-progress-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.registration-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b35 0%, #ff8c61 100%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Pastilles d'étapes (stepper) */
+.registration-steps-dots {
+  gap: 4px;
+}
+
+.step-dot {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  transition: all 0.25s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.step-dot.is-completed {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff8c61 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.step-dot.is-current {
+  background: rgba(255, 107, 53, 0.15);
+  border-color: #ff6b35;
+  color: #ff8c61;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.18);
+  transform: scale(1.15);
+}
+
+.step-dot.is-clickable {
+  cursor: pointer;
+}
+
+.step-dot.is-clickable:hover {
+  transform: scale(1.18);
+  filter: brightness(1.1);
+}
+
+@media (max-width: 360px) {
+  .step-dot {
+    width: 16px;
+    height: 16px;
+    font-size: 8px;
+  }
+}
+
+/* Bouton Retour */
+.registration-back-btn {
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.registration-back-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.registration-back-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Contenu */
+.registration-content {
+  /* Espace en bas pour ne pas être recouvert par le ActionContainer sticky */
+  padding-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Empêche le rubber-band/overscroll d'exposer la page derrière le modal */
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.registration-dialog {
+  overscroll-behavior: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .registration-header {
+    padding: 1rem;
+  }
+
+  .registration-content {
+    padding: 1rem;
+  }
+}

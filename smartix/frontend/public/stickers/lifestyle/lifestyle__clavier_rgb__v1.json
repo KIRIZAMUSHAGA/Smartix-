@@ -1,0 +1,21 @@
+{
+  "id": "lifestyle__clavier_rgb__v1",
+  "title": "Clavier RGB",
+  "category": "lifestyle",
+  "tags": [
+    "gaming"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 500,
+  "defaultHeight": 200,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

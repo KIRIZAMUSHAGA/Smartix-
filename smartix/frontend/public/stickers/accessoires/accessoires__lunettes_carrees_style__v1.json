@@ -1,0 +1,22 @@
+{
+  "id": "accessoires__lunettes_carrees_style__v1",
+  "title": "Lunettes Carrées Style",
+  "category": "accessoires",
+  "tags": [
+    "lunettes",
+    "mode"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 500,
+  "defaultHeight": 300,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

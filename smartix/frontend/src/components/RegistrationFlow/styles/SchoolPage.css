@@ -1,0 +1,195 @@
+/* School Page Styles */
+.school-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0.5rem 0 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .school-page {
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .school-page {
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .school-page {
+    padding-bottom: 0.75rem;
+  }
+}
+
+.school-header {
+  text-align: center;
+  margin-bottom: 5rem;
+  margin-top: 0;
+  animation: slideUp 0.6s ease-out;
+}
+
+.school-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.2) 0%, rgba(255, 107, 53, 0.05) 100%);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.school-icon {
+  width: 32px;
+  height: 32px;
+  color: #ff6b35;
+}
+
+.school-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.school-subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+.school-form {
+  animation: slideUp 0.6s ease-out 0.1s both;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.school-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 900;
+  color: #ff6b35 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  opacity: 1 !important;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+  visibility: visible !important;
+}
+
+.school-input,
+.school-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  height: 48px;
+  font-size: 1.125rem;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid rgba(255, 107, 53, 0.3) !important;
+  color: white !important;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.school-input::placeholder {
+  color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.school-select option {
+  background: #1a1a1a;
+  color: white;
+}
+
+.school-input:focus,
+.school-select:focus {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: #ff6b35 !important;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.25) !important;
+}
+
+/* Action Container */
+.school-action-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 20;
+}
+
+.school-next-button {
+  width: auto;
+  min-width: 120px;
+  height: 44px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #ff6b35 !important;
+  color: white !important;
+  border-radius: 22px;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
+}
+
+.school-next-button.hidden {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  pointer-events: none;
+}
+
+.school-next-button.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.school-next-button:hover:not(:disabled) {
+  background: #ff8c61 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 53, 0.3);
+}
+
+.school-info {
+  display: flex;
+  justify-content: center;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+.school-info-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .school-page {
+    padding: 1.5rem 0;
+  }
+
+  .school-title {
+    font-size: 1.5rem;
+  }
+}

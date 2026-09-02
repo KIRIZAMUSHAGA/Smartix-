@@ -1,0 +1,21 @@
+{
+  "id": "mode__cravate_rouge__v1",
+  "title": "Cravate Rouge",
+  "category": "mode",
+  "tags": [
+    "vetement"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 200,
+  "defaultHeight": 600,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

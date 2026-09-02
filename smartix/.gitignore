@@ -1,0 +1,24 @@
+# Secrets / env files (DEV — sera commit, mais on les exclut malgré tout)
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/.env.local
+frontend/.env
+frontend/.env.local
+firebase-sa.json
+backend/firebase-sa.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+.pnpm-store/
+
+# Logs / OS
+*.log
+.DS_Store

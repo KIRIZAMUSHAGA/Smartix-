@@ -1,0 +1,34 @@
+
+[
+  {
+    "id": 1,
+    "title": "Introduction à la Comptabilité OHADA",
+    "cover": {
+      "title": "CHAPITRE 1",
+      "subtitle": "Introduction à la Comptabilité OHADA",
+      "color": "#00B894"
+    },
+    "pages": [
+      "Bienvenue dans ce premier chapitre sur la comptabilité OHADA. Ce cours vous permettra de comprendre les principes fondamentaux du système comptable OHADA.",
+      "L'OHADA (Organisation pour l'Harmonisation en Afrique du Droit des Affaires) est un système juridique unifié qui régit le droit des affaires dans 17 pays africains.",
+      "Les objectifs de ce chapitre sont : comprendre les principes de base, maîtriser les concepts fondamentaux, et préparer les bases pour les chapitres suivants.",
+      "CONTENU PLACEHOLDER - À REMPLACER PAR LE VRAI CONTENU DU COURS",
+      "CONTENU PLACEHOLDER - PAGE 5",
+      "Fin du chapitre 1. Vous allez maintenant passer au quiz de validation."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Les Comptes et le Plan Comptable",
+    "cover": {
+      "title": "CHAPITRE 2",
+      "subtitle": "Les Comptes et le Plan Comptable",
+      "color": "#0984E3"
+    },
+    "pages": [
+      "CONTENU PLACEHOLDER CHAPITRE 2 - PAGE 1",
+      "CONTENU PLACEHOLDER CHAPITRE 2 - PAGE 2",
+      "CONTENU PLACEHOLDER CHAPITRE 2 - PAGE 3"
+    ]
+  }
+]

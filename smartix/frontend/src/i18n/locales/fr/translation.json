@@ -1,0 +1,210 @@
+{
+  "community": {
+    "composer": {
+      "placeholder": "Quoi de neuf, prof?",
+      "viewProfile": "Voir mon profil"
+    },
+    "stories": {
+      "yourStory": "Votre Story"
+    },
+    "post": {
+      "share": "Partager",
+      "comment": "Commenter",
+      "like": "J'aime",
+      "recently": "Récemment",
+      "userDefault": "Utilisateur"
+    },
+    "error": "Impossible de charger le contenu.",
+    "empty": "Rien à voir ici pour l'instant. Lance la discussion ! 🚀",
+    "published": "Publié !",
+    "shareSoon": "Partage bientôt disponible"
+  },
+  "courses": {
+    "back": "Retour",
+    "addCourse": "Ajouter un cours",
+    "title": "Mes Cours",
+    "subtitle": "Toutes tes matières",
+    "searchPlaceholder": "Rechercher un cours...",
+    "progression": {
+      "title": "Ta progression",
+      "resume": "Reprendre le cours"
+    },
+    "book": {
+      "chapters": "chapitres",
+      "open": "Ouvrir le livre"
+    },
+    "empty": {
+      "title": "Aucun cours trouvé",
+      "desc": "Réessaie avec d'autres mots-clés"
+    },
+    "modal": {
+      "title": "Créer un cours",
+      "placeholderTitle": "Titre du cours",
+      "placeholderDesc": "Description",
+      "cancel": "Annuler",
+      "create": "Créer"
+    },
+    "levels": {
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    },
+    "categories": {
+      "all": "Tous",
+      "accounting": "Comptabilité",
+      "it": "Informatique",
+      "maths": "Maths",
+      "physics": "Physique",
+      "chemistry": "Chimie",
+      "literature": "Littérature"
+    }
+  },
+  "home": {
+    "welcome": "Salut",
+    "tagline": "Ton parcours d'excellence académique",
+    "tagline2": "dans toutes les matières 🌍",
+    "startCourse": "Commencer un cours",
+    "talkToAI": "Parler à l'IA",
+    "searchPlaceholder": "Rechercher un cours...",
+    "searchButton": "Rechercher",
+    "progression": "Ta Progression",
+    "dailyGoal": "aujourd'hui",
+    "currentLevel": "Niveau actuel",
+    "level": "Niveau",
+    "nextLevelPoints": "points pour le niveau",
+    "dailyGoalTitle": "Objectif quotidien",
+    "remainingExercises": "exercices restants",
+    "stats": {
+      "totalPoints": "Points totaux",
+      "badges": "Badges",
+      "completedCourses": "Cours complétés",
+      "successfulExercises": "Exercices réussis"
+    },
+    "encouragement": {
+      "title": "Continue comme ça !",
+      "description": "Tu progresses dans toutes tes matières. Complète tes objectifs pour gagner plus de récompenses."
+    },
+    "actions": {
+      "ai": { "label": "Assistant IA", "desc": "Pose tes questions" },
+      "courses": { "label": "Tes Cours", "desc": "Gère tes matières" },
+      "community": { "label": "Communauté", "desc": "Connecte-toi" },
+      "store": { "label": "Smart Store", "desc": "Découvre la boutique" }
+    },
+    "learnMore": "En savoir plus"
+  },
+  "landing": {
+    "badge": "Plateforme éducative #1 en Afrique",
+    "hero": {
+      "title": "Apprends, pratique et",
+      "italic": "connecte-toi",
+      "subtitle": "avec l'éducation de demain",
+      "description": "Smartix combine intelligence artificielle, cours interactifs et réseau social pour révolutionner l'apprentissage partout en Afrique.",
+      "startFree": "Commencer gratuitement",
+      "learnMore": "En savoir plus"
+    },
+    "stats": {
+      "activeStudents": "Étudiants actifs",
+      "booksCourses": "Livres & Cours",
+      "successRate": "Taux de réussite"
+    },
+    "header": {
+      "login": "Se connecter"
+    }
+  },
+  "settings": {
+    "title": "Paramètres",
+    "tagline": "Gère tes préférences Smartix",
+    "sections": {
+      "appearance": "Apparence",
+      "language": "Langue & Région",
+      "notifications": "Notifications",
+      "content": "Contenu & Préférences",
+      "performance": "Données & Performance",
+      "accessibility": "Accessibilité"
+    },
+    "appearance": {
+      "displayMode": "Mode d'affichage",
+      "light": "Clair",
+      "dark": "Sombre",
+      "system": "Auto",
+      "textSize": "Taille du texte",
+      "textSmall": "Petit",
+      "textNormal": "Normal",
+      "textLarge": "Grand",
+      "animations": "Animations"
+    },
+    "security": {
+      "title": "Sécurité & Confidentialité",
+      "desc": "Pour changer ton mot de passe ou gérer tes sessions actives, rends-toi dans la section",
+      "link": "Sécurité"
+    }
+  },
+  "nav": {
+    "home": "Accueil",
+    "courses": "Cours",
+    "community": "Communauté",
+    "news": "Actualités",
+    "store": "Boutique"
+  },
+  "news": {
+    "title": "Actualités",
+    "subtitle": "L'info académique en temps réel",
+    "searchPlaceholder": "Chercher dans les actualités...",
+    "searchButton": "Chercher",
+    "loading": "Chargement...",
+    "load_error": "Impossible de charger les actualités. Réessaie plus tard.",
+    "read": "Lire",
+    "show_filters": "Filtres",
+    "hide_filters": "Masquer les filtres",
+    "language": "Langue",
+    "country": "Pays",
+    "category": "Catégorie",
+    "categories": {
+      "all": "Toutes les actualités",
+      "fr": "Français",
+      "cd": "RD Congo",
+      "en": "English"
+    },
+    "empty": {
+      "title": "Aucune actualité",
+      "desc": "Réessaie plus tard ou change de filtre"
+    }
+  },
+  "store": {
+    "title": "Smartix Store",
+    "subtitle": "Découvrez des formations, livres et cours numériques",
+    "searchPlaceholder": "Rechercher des produits...",
+    "filters": "Filtres",
+    "addToCart": "Ajouter au panier",
+    "cart": {
+      "title": "Panier",
+      "total": "Total",
+      "checkout": "Commander",
+      "empty": "Ton panier est vide"
+    },
+    "stats": {
+      "products": "Produits",
+      "trending": "En vogue",
+      "topRated": "Mieux notés"
+    },
+    "categories": {
+      "badges": "Badges",
+      "boosters": "Boosters",
+      "customization": "Personnalisation"
+    },
+    "products": {
+      "premium": {
+        "name": "Badge Premium",
+        "desc": "Découvrez des formations, livres et cours numériques"
+      },
+      "speed": {
+        "name": "Boost de Vitesse",
+        "desc": "Accélérez votre apprentissage avec nos outils premium"
+      },
+      "success": {
+        "name": "Cadre de Succès",
+        "desc": "Affichez vos réussites avec élégance"
+      }
+    }
+  }
+}

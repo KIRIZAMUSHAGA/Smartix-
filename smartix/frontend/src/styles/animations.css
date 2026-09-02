@@ -1,0 +1,87 @@
+
+@keyframes pageFlip {
+  0% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(-90deg);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(-180deg);
+  }
+}
+
+@keyframes pageFlipReverse {
+  0% {
+    transform: perspective(1200px) rotateY(-180deg);
+  }
+  50% {
+    transform: perspective(1200px) rotateY(-90deg);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    transform: perspective(1200px) rotateY(0deg);
+  }
+}
+
+.page-flip-enter {
+  animation: pageFlip 0.6s ease-in-out forwards;
+}
+
+.page-flip-reverse {
+  animation: pageFlipReverse 0.6s ease-in-out forwards;
+}
+
+@keyframes bookOpen {
+  0% {
+    transform: perspective(1500px) rotateY(0deg) scale(0.95);
+    opacity: 0.8;
+  }
+  100% {
+    transform: perspective(1500px) rotateY(-25deg) scale(1);
+    opacity: 1;
+  }
+}
+
+.book-open {
+  animation: bookOpen 0.8s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-particle {
+  animation: confettiFall 2s linear forwards;
+}
+
+@keyframes timerPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.timer-warning {
+  animation: timerPulse 0.5s ease-in-out infinite;
+}
+
+@keyframes correctShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+.answer-correct {
+  animation: correctShake 0.3s ease-in-out;
+}

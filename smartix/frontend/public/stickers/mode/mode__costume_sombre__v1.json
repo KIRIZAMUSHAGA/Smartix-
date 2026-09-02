@@ -1,0 +1,21 @@
+{
+  "id": "mode__costume_sombre__v1",
+  "title": "Costume Sombre",
+  "category": "mode",
+  "tags": [
+    "vetement"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 500,
+  "defaultHeight": 650,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

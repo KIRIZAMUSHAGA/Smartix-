@@ -1,0 +1,3506 @@
+[
+  {
+    "system_user_id": "c0c05c7e-a2d8-42b6-a0da-bc87bab33a06",
+    "prenom": "Placide",
+    "nom": "Kanyinda",
+    "full_name": "Placide Kanyinda",
+    "age": 34,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 778,
+      "variance_reponse_pourcent": 67,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-10-29T14:13:49.163169+00:00"
+  },
+  {
+    "system_user_id": "6b712a5f-9355-4622-b897-ce3f76027ec9",
+    "prenom": "Ousmane",
+    "nom": "Kane",
+    "full_name": "Ousmane Kane",
+    "age": 27,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Thiès",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "expert",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 477,
+      "variance_reponse_pourcent": 113,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Jeudi",
+        "Mercredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-11-04T14:13:49.163382+00:00"
+  },
+  {
+    "system_user_id": "cb3e4a02-bec0-4c6d-a328-5a498f51ef71",
+    "prenom": "Tiémoko",
+    "nom": "Diallo",
+    "full_name": "Tiémoko Diallo",
+    "age": 42,
+    "genre": "N",
+    "pays": "CI",
+    "ville": "Yamoussoukro",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "expert",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 756,
+      "variance_reponse_pourcent": 78,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.163520+00:00"
+  },
+  {
+    "system_user_id": "e40c6581-545f-45ba-b947-8ac69d8d25b9",
+    "prenom": "Faustin",
+    "nom": "Mubiala",
+    "full_name": "Faustin Mubiala",
+    "age": 24,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 464,
+      "variance_reponse_pourcent": 77,
+      "heures_actives": [
+        "08:00-22:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-05-08T14:13:49.163642+00:00"
+  },
+  {
+    "system_user_id": "ba77ce21-c973-4aaa-96c2-794c65eab739",
+    "prenom": "Ibrahima",
+    "nom": "Sow",
+    "full_name": "Ibrahima Sow",
+    "age": 27,
+    "genre": "M",
+    "pays": "Sénégal",
+    "ville": "Touba",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 372,
+      "variance_reponse_pourcent": 37,
+      "heures_actives": [
+        "10:00-20:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Jeudi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-05-27T14:13:49.163733+00:00"
+  },
+  {
+    "system_user_id": "e14a8b58-00b1-45c3-a7d5-6a40d87442c9",
+    "prenom": "Espérance",
+    "nom": "Mbuyi",
+    "full_name": "Espérance Mbuyi",
+    "age": 40,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 176,
+      "variance_reponse_pourcent": 106,
+      "heures_actives": [
+        "08:00-18:00"
+      ],
+      "jours_faibles": [
+        "Dimanche",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.163842+00:00"
+  },
+  {
+    "system_user_id": "2c6b28a6-2ac5-4932-96a1-e5042ef0c919",
+    "prenom": "Faustin",
+    "nom": "Kasongo",
+    "full_name": "Faustin Kasongo",
+    "age": 45,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "expert",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 631,
+      "variance_reponse_pourcent": 93,
+      "heures_actives": [
+        "10:00-18:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-02-07T14:13:49.163924+00:00"
+  },
+  {
+    "system_user_id": "a3122bcd-e2bb-4a1d-8035-aa936aabf5d5",
+    "prenom": "Placide",
+    "nom": "Mukendi",
+    "full_name": "Placide Mukendi",
+    "age": 41,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 246,
+      "variance_reponse_pourcent": 61,
+      "heures_actives": [
+        "10:00-22:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-03-09T14:13:49.164038+00:00"
+  },
+  {
+    "system_user_id": "de24effe-7c89-4609-8fe8-1d256334aabc",
+    "prenom": "Tiémoko",
+    "nom": "Diomandé",
+    "full_name": "Tiémoko Diomandé",
+    "age": 45,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "Bouaké",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 152,
+      "variance_reponse_pourcent": 65,
+      "heures_actives": [
+        "07:00-20:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-07-01T14:13:49.164141+00:00"
+  },
+  {
+    "system_user_id": "fb54af3c-d3b5-48ce-bf35-42de302b8efe",
+    "prenom": "Chloé",
+    "nom": "Michel",
+    "full_name": "Chloé Michel",
+    "age": 28,
+    "genre": "M",
+    "pays": "France",
+    "ville": "Lyon",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 792,
+      "variance_reponse_pourcent": 115,
+      "heures_actives": [
+        "08:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-07-01T14:13:49.164238+00:00"
+  },
+  {
+    "system_user_id": "39bf87fc-97a7-438b-b139-2e270a48256e",
+    "prenom": "Faustin",
+    "nom": "Kanyinda",
+    "full_name": "Faustin Kanyinda",
+    "age": 25,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 699,
+      "variance_reponse_pourcent": 34,
+      "heures_actives": [
+        "08:00-22:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.164350+00:00"
+  },
+  {
+    "system_user_id": "969bfa1a-3f30-4504-a83c-961c8f1234f8",
+    "prenom": "Adjoua",
+    "nom": "Bamba",
+    "full_name": "Adjoua Bamba",
+    "age": 27,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "Bouaké",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 230,
+      "variance_reponse_pourcent": 50,
+      "heures_actives": [
+        "08:00-23:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-04-27T14:13:49.164428+00:00"
+  },
+  {
+    "system_user_id": "65d05306-35ca-43ac-9db6-12b9cc6c99d8",
+    "prenom": "Florence",
+    "nom": "Roy",
+    "full_name": "Florence Roy",
+    "age": 25,
+    "genre": "F",
+    "pays": "Canada",
+    "ville": "Ottawa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 506,
+      "variance_reponse_pourcent": 85,
+      "heures_actives": [
+        "08:00-18:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Dimanche"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-12-28T14:13:49.164543+00:00"
+  },
+  {
+    "system_user_id": "7c0ea7a0-ca8d-41a5-9a63-26984ea4cd6d",
+    "prenom": "Bijou",
+    "nom": "Kasongo",
+    "full_name": "Bijou Kasongo",
+    "age": 39,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 639,
+      "variance_reponse_pourcent": 29,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-03-03T14:13:49.164617+00:00"
+  },
+  {
+    "system_user_id": "aa2f330f-7b5d-46fe-b427-3a44016ba11d",
+    "prenom": "Gloire",
+    "nom": "Kanyinda",
+    "full_name": "Gloire Kanyinda",
+    "age": 40,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 621,
+      "variance_reponse_pourcent": 92,
+      "heures_actives": [
+        "07:00-22:00"
+      ],
+      "jours_faibles": [
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-11-04T14:13:49.164715+00:00"
+  },
+  {
+    "system_user_id": "6d1e5c20-c76d-4673-8097-e7208ec62f43",
+    "prenom": "Kabasele",
+    "nom": "Luzolo",
+    "full_name": "Kabasele Luzolo",
+    "age": 44,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 55,
+      "variance_reponse_pourcent": 31,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-01-27T14:13:49.164796+00:00"
+  },
+  {
+    "system_user_id": "9561d3e5-ee17-4d9e-8c54-756af25407c8",
+    "prenom": "Merveille",
+    "nom": "Kasongo",
+    "full_name": "Merveille Kasongo",
+    "age": 28,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 311,
+      "variance_reponse_pourcent": 57,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-04-08T14:13:49.164874+00:00"
+  },
+  {
+    "system_user_id": "65616a39-6fed-4516-b15b-766837e0509a",
+    "prenom": "Abdoulaye",
+    "nom": "Kane",
+    "full_name": "Abdoulaye Kane",
+    "age": 47,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Saint-Louis",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 104,
+      "variance_reponse_pourcent": 32,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Mardi",
+        "Samedi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.164934+00:00"
+  },
+  {
+    "system_user_id": "992be4ec-a2c4-4410-8bc1-ede1b4511403",
+    "prenom": "Adjoua",
+    "nom": "Koné",
+    "full_name": "Adjoua Koné",
+    "age": 44,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "San-Pédro",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 541,
+      "variance_reponse_pourcent": 83,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Samedi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-02-26T14:13:49.165176+00:00"
+  },
+  {
+    "system_user_id": "cffa7f03-b682-4f47-a44f-fd523c7e0af3",
+    "prenom": "Faustin",
+    "nom": "Mukendi",
+    "full_name": "Faustin Mukendi",
+    "age": 42,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "expert",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 282,
+      "variance_reponse_pourcent": 37,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-02-07T14:13:49.165288+00:00"
+  },
+  {
+    "system_user_id": "5ec1ede4-719f-4c8e-af4c-a9ec43c1c134",
+    "prenom": "Ibrahima",
+    "nom": "Ba",
+    "full_name": "Ibrahima Ba",
+    "age": 23,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Kaolack",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 492,
+      "variance_reponse_pourcent": 62,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.165393+00:00"
+  },
+  {
+    "system_user_id": "e047136c-7895-4de7-9e33-109cf6d0f048",
+    "prenom": "Awa",
+    "nom": "Diallo",
+    "full_name": "Awa Diallo",
+    "age": 25,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Abidjan",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 431,
+      "variance_reponse_pourcent": 42,
+      "heures_actives": [
+        "10:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-03-03T14:13:49.165472+00:00"
+  },
+  {
+    "system_user_id": "8d38c9c4-eb08-447a-818e-67c0285cfa06",
+    "prenom": "Kabasele",
+    "nom": "Kanyinda",
+    "full_name": "Kabasele Kanyinda",
+    "age": 28,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 563,
+      "variance_reponse_pourcent": 120,
+      "heures_actives": [
+        "07:00-21:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-03-09T14:13:49.165580+00:00"
+  },
+  {
+    "system_user_id": "cb87face-9039-4da3-abd3-99bb942c9fb9",
+    "prenom": "Cheikh",
+    "nom": "Ba",
+    "full_name": "Cheikh Ba",
+    "age": 29,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Touba",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 299,
+      "variance_reponse_pourcent": 83,
+      "heures_actives": [
+        "07:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Samedi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.165658+00:00"
+  },
+  {
+    "system_user_id": "1d4d56cc-a16e-48fe-9699-2c3e2d7f4d03",
+    "prenom": "Anny",
+    "nom": "Kalonji",
+    "full_name": "Anny Kalonji",
+    "age": 33,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 319,
+      "variance_reponse_pourcent": 28,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Mardi",
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.165754+00:00"
+  },
+  {
+    "system_user_id": "5399f4ce-dc12-4098-8b59-f1ba5e802427",
+    "prenom": "Anny",
+    "nom": "Ilunga",
+    "full_name": "Anny Ilunga",
+    "age": 27,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 435,
+      "variance_reponse_pourcent": 54,
+      "heures_actives": [
+        "08:00-19:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-06-07T14:13:49.165857+00:00"
+  },
+  {
+    "system_user_id": "b2eb2051-1321-4cd4-9aa5-666de7bc4396",
+    "prenom": "Chloé",
+    "nom": "Moreau",
+    "full_name": "Chloé Moreau",
+    "age": 22,
+    "genre": "F",
+    "pays": "France",
+    "ville": "Lyon",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 557,
+      "variance_reponse_pourcent": 29,
+      "heures_actives": [
+        "07:00-22:00"
+      ],
+      "jours_faibles": [
+        "Vendredi",
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-06-26T14:13:49.165941+00:00"
+  },
+  {
+    "system_user_id": "d531064a-139b-48d7-bf06-4103aaa74269",
+    "prenom": "Bijou",
+    "nom": "Ngoma",
+    "full_name": "Bijou Ngoma",
+    "age": 32,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 731,
+      "variance_reponse_pourcent": 38,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.166030+00:00"
+  },
+  {
+    "system_user_id": "a817e5da-25a2-4ecd-aa12-53d53f3aa07c",
+    "prenom": "Dieudonné",
+    "nom": "Mukendi",
+    "full_name": "Dieudonné Mukendi",
+    "age": 29,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 575,
+      "variance_reponse_pourcent": 29,
+      "heures_actives": [
+        "09:00-21:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Jeudi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-07-07T14:13:49.166125+00:00"
+  },
+  {
+    "system_user_id": "011a2056-d0d8-46ad-bbde-6ee883feff01",
+    "prenom": "Adjoua",
+    "nom": "Diomandé",
+    "full_name": "Adjoua Diomandé",
+    "age": 31,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Daloa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 347,
+      "variance_reponse_pourcent": 98,
+      "heures_actives": [
+        "07:00-20:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.166308+00:00"
+  },
+  {
+    "system_user_id": "d2c9acee-23ed-4bd4-a088-066791bd604f",
+    "prenom": "Espérance",
+    "nom": "Kasongo",
+    "full_name": "Espérance Kasongo",
+    "age": 43,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 750,
+      "variance_reponse_pourcent": 82,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-12-28T14:13:49.166407+00:00"
+  },
+  {
+    "system_user_id": "990aa7d7-c2a0-49c2-b13b-6e013d00abee",
+    "prenom": "Béatrice",
+    "nom": "Fortin",
+    "full_name": "Béatrice Fortin",
+    "age": 30,
+    "genre": "F",
+    "pays": "Canada",
+    "ville": "Vancouver",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 457,
+      "variance_reponse_pourcent": 36,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Jeudi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-06-01T14:13:49.166481+00:00"
+  },
+  {
+    "system_user_id": "4626eaae-4feb-4cc6-b896-94e36311e18b",
+    "prenom": "Yao",
+    "nom": "Kouassi",
+    "full_name": "Yao Kouassi",
+    "age": 36,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Abidjan",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 839,
+      "variance_reponse_pourcent": 38,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-04-02T14:13:49.166665+00:00"
+  },
+  {
+    "system_user_id": "de91061c-4375-4528-b7e2-cb32aa50cfa0",
+    "prenom": "Fatou",
+    "nom": "Bamba",
+    "full_name": "Fatou Bamba",
+    "age": 47,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "San-Pédro",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 214,
+      "variance_reponse_pourcent": 94,
+      "heures_actives": [
+        "10:00-23:00"
+      ],
+      "jours_faibles": [
+        "Dimanche",
+        "Lundi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.166747+00:00"
+  },
+  {
+    "system_user_id": "71186279-3180-47f3-ad98-d2e6e5ce0914",
+    "prenom": "Tshilombo",
+    "nom": "Mukendi",
+    "full_name": "Tshilombo Mukendi",
+    "age": 28,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 847,
+      "variance_reponse_pourcent": 20,
+      "heures_actives": [
+        "10:00-23:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-11-04T14:13:49.167020+00:00"
+  },
+  {
+    "system_user_id": "9812f084-6cb4-43cb-9795-8ec8baf0c3db",
+    "prenom": "Alice",
+    "nom": "Côté",
+    "full_name": "Alice Côté",
+    "age": 29,
+    "genre": "N",
+    "pays": "Canada",
+    "ville": "Toronto",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 317,
+      "variance_reponse_pourcent": 56,
+      "heures_actives": [
+        "10:00-23:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.167115+00:00"
+  },
+  {
+    "system_user_id": "133e8b9b-b74c-4bb1-8f16-c8d56d76f433",
+    "prenom": "Dieudonné",
+    "nom": "Ngoma",
+    "full_name": "Dieudonné Ngoma",
+    "age": 26,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 863,
+      "variance_reponse_pourcent": 60,
+      "heures_actives": [
+        "08:00-23:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-08-06T14:13:49.167209+00:00"
+  },
+  {
+    "system_user_id": "d65aa238-44da-40aa-930e-11a1c5ebe17e",
+    "prenom": "Faustin",
+    "nom": "Ilunga",
+    "full_name": "Faustin Ilunga",
+    "age": 25,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 665,
+      "variance_reponse_pourcent": 102,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-07-07T14:13:49.167299+00:00"
+  },
+  {
+    "system_user_id": "37e69c2e-374a-48fb-94a3-8f5d6fc3d4e5",
+    "prenom": "Olivia",
+    "nom": "Gagnon",
+    "full_name": "Olivia Gagnon",
+    "age": 36,
+    "genre": "N",
+    "pays": "Canada",
+    "ville": "Montréal",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 522,
+      "variance_reponse_pourcent": 40,
+      "heures_actives": [
+        "10:00-23:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Dimanche"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.167382+00:00"
+  },
+  {
+    "system_user_id": "7bbd29a9-a908-4366-b6ed-98a08738e58d",
+    "prenom": "Chloé",
+    "nom": "Lefebvre",
+    "full_name": "Chloé Lefebvre",
+    "age": 39,
+    "genre": "N",
+    "pays": "France",
+    "ville": "Bordeaux",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 748,
+      "variance_reponse_pourcent": 38,
+      "heures_actives": [
+        "10:00-23:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-02-02T14:13:49.167534+00:00"
+  },
+  {
+    "system_user_id": "fa89d595-52e2-4575-aa5e-f6d44b92dae2",
+    "prenom": "Ibrahima",
+    "nom": "Diatta",
+    "full_name": "Ibrahima Diatta",
+    "age": 28,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Touba",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 891,
+      "variance_reponse_pourcent": 49,
+      "heures_actives": [
+        "08:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-02-07T14:13:49.167612+00:00"
+  },
+  {
+    "system_user_id": "3aa147cd-b5be-4d4e-b08f-de57012f0adf",
+    "prenom": "Adjoua",
+    "nom": "Yao",
+    "full_name": "Adjoua Yao",
+    "age": 27,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Daloa",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 183,
+      "variance_reponse_pourcent": 83,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Dimanche",
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-02-07T14:13:49.167686+00:00"
+  },
+  {
+    "system_user_id": "77771455-3bb4-4804-b98b-949bf7024c02",
+    "prenom": "Bakayoko",
+    "nom": "Yao",
+    "full_name": "Bakayoko Yao",
+    "age": 42,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "Daloa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 68,
+      "variance_reponse_pourcent": 70,
+      "heures_actives": [
+        "10:00-18:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-03-03T14:13:49.167768+00:00"
+  },
+  {
+    "system_user_id": "0b4c9daf-4c54-479d-b3af-1808f68f85fb",
+    "prenom": "Olivia",
+    "nom": "Morin",
+    "full_name": "Olivia Morin",
+    "age": 46,
+    "genre": "F",
+    "pays": "Canada",
+    "ville": "Vancouver",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "expert",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 370,
+      "variance_reponse_pourcent": 39,
+      "heures_actives": [
+        "07:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Dimanche"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-10-29T14:13:49.167925+00:00"
+  },
+  {
+    "system_user_id": "79787336-08c2-4b5f-9bc6-14c34a15e383",
+    "prenom": "Gloire",
+    "nom": "Luzolo",
+    "full_name": "Gloire Luzolo",
+    "age": 45,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 845,
+      "variance_reponse_pourcent": 21,
+      "heures_actives": [
+        "08:00-20:00"
+      ],
+      "jours_faibles": [
+        "Jeudi",
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.168105+00:00"
+  },
+  {
+    "system_user_id": "4443d4b0-7cb8-491f-8cba-d50d20475e08",
+    "prenom": "Merveille",
+    "nom": "Ngoma",
+    "full_name": "Merveille Ngoma",
+    "age": 42,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 865,
+      "variance_reponse_pourcent": 34,
+      "heures_actives": [
+        "08:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-02-26T14:13:49.168199+00:00"
+  },
+  {
+    "system_user_id": "634bf1da-d447-47ea-97eb-ff07027f0b61",
+    "prenom": "Fatou",
+    "nom": "Yao",
+    "full_name": "Fatou Yao",
+    "age": 44,
+    "genre": "N",
+    "pays": "CI",
+    "ville": "Abidjan",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 377,
+      "variance_reponse_pourcent": 92,
+      "heures_actives": [
+        "10:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mardi",
+        "Vendredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-04-02T14:13:49.183294+00:00"
+  },
+  {
+    "system_user_id": "144b667c-db2e-420f-9960-52bdc13e44f2",
+    "prenom": "Anny",
+    "nom": "Kasongo",
+    "full_name": "Anny Kasongo",
+    "age": 27,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 631,
+      "variance_reponse_pourcent": 68,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-06-26T14:13:49.183598+00:00"
+  },
+  {
+    "system_user_id": "a05c4aaf-49f9-4624-ad08-652b0df5b72c",
+    "prenom": "Kabasele",
+    "nom": "Mbuyi",
+    "full_name": "Kabasele Mbuyi",
+    "age": 34,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 393,
+      "variance_reponse_pourcent": 82,
+      "heures_actives": [
+        "09:00-23:00"
+      ],
+      "jours_faibles": [
+        "Vendredi",
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-05-08T14:13:49.183718+00:00"
+  },
+  {
+    "system_user_id": "1108b91f-821f-4cf0-909f-1c18332ded13",
+    "prenom": "Moussa",
+    "nom": "Diop",
+    "full_name": "Moussa Diop",
+    "age": 38,
+    "genre": "M",
+    "pays": "Sénégal",
+    "ville": "Kaolack",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 163,
+      "variance_reponse_pourcent": 80,
+      "heures_actives": [
+        "08:00-20:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-12-28T14:13:49.184379+00:00"
+  },
+  {
+    "system_user_id": "8f1c4a45-fdde-44ea-bef1-addff2b9c41c",
+    "prenom": "Dieudonné",
+    "nom": "Mubiala",
+    "full_name": "Dieudonné Mubiala",
+    "age": 30,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 812,
+      "variance_reponse_pourcent": 42,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Jeudi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-05-02T14:13:49.184513+00:00"
+  },
+  {
+    "system_user_id": "3524ab8a-7da0-48ce-99f1-b9c2378a6d40",
+    "prenom": "Merveille",
+    "nom": "Mutombo",
+    "full_name": "Merveille Mutombo",
+    "age": 22,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 359,
+      "variance_reponse_pourcent": 99,
+      "heures_actives": [
+        "08:00-23:00"
+      ],
+      "jours_faibles": [
+        "Jeudi",
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-02-02T14:13:49.184620+00:00"
+  },
+  {
+    "system_user_id": "b158557a-c29e-49b2-bd56-7e7a8d33535d",
+    "prenom": "Nicolas",
+    "nom": "Lefebvre",
+    "full_name": "Nicolas Lefebvre",
+    "age": 42,
+    "genre": "N",
+    "pays": "France",
+    "ville": "Bordeaux",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Audit interne",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 682,
+      "variance_reponse_pourcent": 27,
+      "heures_actives": [
+        "07:00-20:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.184727+00:00"
+  },
+  {
+    "system_user_id": "bc10e787-7039-432c-9cca-e18a33e125ce",
+    "prenom": "Khady",
+    "nom": "Ba",
+    "full_name": "Khady Ba",
+    "age": 29,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Mbour",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 109,
+      "variance_reponse_pourcent": 34,
+      "heures_actives": [
+        "08:00-20:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-08-30T14:13:49.184837+00:00"
+  },
+  {
+    "system_user_id": "3c9cffb6-c931-4d8d-be44-d05a4bc47a82",
+    "prenom": "Noah",
+    "nom": "Lavoie",
+    "full_name": "Noah Lavoie",
+    "age": 32,
+    "genre": "F",
+    "pays": "Canada",
+    "ville": "Toronto",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 422,
+      "variance_reponse_pourcent": 64,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-07-26T14:13:49.185016+00:00"
+  },
+  {
+    "system_user_id": "2757a664-6f8e-4314-9f92-3e2ebed52244",
+    "prenom": "Gloire",
+    "nom": "Ngoma",
+    "full_name": "Gloire Ngoma",
+    "age": 37,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 790,
+      "variance_reponse_pourcent": 34,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.185243+00:00"
+  },
+  {
+    "system_user_id": "9f814d8f-599b-47b8-ab5d-b5a746e88433",
+    "prenom": "Merveille",
+    "nom": "Mbuyi",
+    "full_name": "Merveille Mbuyi",
+    "age": 44,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 766,
+      "variance_reponse_pourcent": 120,
+      "heures_actives": [
+        "10:00-20:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.185355+00:00"
+  },
+  {
+    "system_user_id": "1c4bc4e6-f4f4-4239-b307-e2dea67cc5c8",
+    "prenom": "Anny",
+    "nom": "Mutombo",
+    "full_name": "Anny Mutombo",
+    "age": 48,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 211,
+      "variance_reponse_pourcent": 26,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-10-05T14:13:49.185453+00:00"
+  },
+  {
+    "system_user_id": "b2979e3d-48e1-4c08-84b6-1c7f449ef049",
+    "prenom": "Florence",
+    "nom": "Gagnon",
+    "full_name": "Florence Gagnon",
+    "age": 37,
+    "genre": "M",
+    "pays": "Canada",
+    "ville": "Montréal",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 763,
+      "variance_reponse_pourcent": 63,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Jeudi",
+        "Mardi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-04-27T14:13:49.185582+00:00"
+  },
+  {
+    "system_user_id": "a7aab690-56b9-4d48-a8b0-050ba6952403",
+    "prenom": "Tshilombo",
+    "nom": "Luzolo",
+    "full_name": "Tshilombo Luzolo",
+    "age": 25,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 40,
+      "variance_reponse_pourcent": 55,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-03-09T14:13:49.186249+00:00"
+  },
+  {
+    "system_user_id": "8ce98412-fcad-4b8a-80a8-c7917595a6b1",
+    "prenom": "Anny",
+    "nom": "Mubiala",
+    "full_name": "Anny Mubiala",
+    "age": 47,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Droit des affaires",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 717,
+      "variance_reponse_pourcent": 102,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.186373+00:00"
+  },
+  {
+    "system_user_id": "c27f2112-f258-42ea-8969-1834f8aada4d",
+    "prenom": "Tshilombo",
+    "nom": "Kalonji",
+    "full_name": "Tshilombo Kalonji",
+    "age": 38,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 857,
+      "variance_reponse_pourcent": 92,
+      "heures_actives": [
+        "07:00-22:00"
+      ],
+      "jours_faibles": [
+        "Dimanche",
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-04-08T14:13:49.186475+00:00"
+  },
+  {
+    "system_user_id": "1cbe3cdb-c6ce-40cd-a90b-52087616280b",
+    "prenom": "Merveille",
+    "nom": "Luzolo",
+    "full_name": "Merveille Luzolo",
+    "age": 41,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 883,
+      "variance_reponse_pourcent": 26,
+      "heures_actives": [
+        "10:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-10-29T14:13:49.187806+00:00"
+  },
+  {
+    "system_user_id": "8dbbb142-c827-4c4f-ace0-8adbfb7cac82",
+    "prenom": "Espérance",
+    "nom": "Kalonji",
+    "full_name": "Espérance Kalonji",
+    "age": 31,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 566,
+      "variance_reponse_pourcent": 33,
+      "heures_actives": [
+        "09:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-10-05T14:13:49.188513+00:00"
+  },
+  {
+    "system_user_id": "e2373d7e-7f5a-4d2e-a9f3-2fb52a328831",
+    "prenom": "Espérance",
+    "nom": "Mukendi",
+    "full_name": "Espérance Mukendi",
+    "age": 41,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 271,
+      "variance_reponse_pourcent": 32,
+      "heures_actives": [
+        "08:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-04-27T14:13:49.188686+00:00"
+  },
+  {
+    "system_user_id": "b6aeefeb-9411-486f-a3d2-99eaaa417658",
+    "prenom": "Espérance",
+    "nom": "Ngoma",
+    "full_name": "Espérance Ngoma",
+    "age": 30,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 418,
+      "variance_reponse_pourcent": 59,
+      "heures_actives": [
+        "10:00-18:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Jeudi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-12-28T14:13:49.188815+00:00"
+  },
+  {
+    "system_user_id": "2084f97c-a794-441f-ba4d-b628da54bfd0",
+    "prenom": "Gloire",
+    "nom": "Mubiala",
+    "full_name": "Gloire Mubiala",
+    "age": 24,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 826,
+      "variance_reponse_pourcent": 80,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-05-27T14:13:49.188920+00:00"
+  },
+  {
+    "system_user_id": "a39e8b30-0898-42cc-ac7c-c2ea6bf52db6",
+    "prenom": "Noah",
+    "nom": "Roy",
+    "full_name": "Noah Roy",
+    "age": 38,
+    "genre": "N",
+    "pays": "Canada",
+    "ville": "Vancouver",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 106,
+      "variance_reponse_pourcent": 112,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.189143+00:00"
+  },
+  {
+    "system_user_id": "29c3393e-344d-4d5a-8b41-62987fccb4d6",
+    "prenom": "Liam",
+    "nom": "Tremblay",
+    "full_name": "Liam Tremblay",
+    "age": 39,
+    "genre": "N",
+    "pays": "Canada",
+    "ville": "Ottawa",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 418,
+      "variance_reponse_pourcent": 20,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Mercredi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-07-01T14:13:49.189262+00:00"
+  },
+  {
+    "system_user_id": "f27759cf-8339-48aa-b085-4659dee41c77",
+    "prenom": "Dieudonné",
+    "nom": "Kalonji",
+    "full_name": "Dieudonné Kalonji",
+    "age": 48,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "expert",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 130,
+      "variance_reponse_pourcent": 73,
+      "heures_actives": [
+        "10:00-18:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.189395+00:00"
+  },
+  {
+    "system_user_id": "4858f368-2222-4462-b67d-4604587b3dc7",
+    "prenom": "Kabasele",
+    "nom": "Kalonji",
+    "full_name": "Kabasele Kalonji",
+    "age": 36,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 617,
+      "variance_reponse_pourcent": 117,
+      "heures_actives": [
+        "09:00-23:00"
+      ],
+      "jours_faibles": [
+        "Mardi",
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-11-04T14:13:49.189499+00:00"
+  },
+  {
+    "system_user_id": "b5233346-160c-444c-ab5d-d6f847991c4f",
+    "prenom": "Merveille",
+    "nom": "Mubiala",
+    "full_name": "Merveille Mubiala",
+    "age": 23,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 336,
+      "variance_reponse_pourcent": 115,
+      "heures_actives": [
+        "08:00-18:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-01-27T14:13:49.189607+00:00"
+  },
+  {
+    "system_user_id": "e53216c1-442e-4d18-848e-7343279e9c2c",
+    "prenom": "Koffi",
+    "nom": "Diomandé",
+    "full_name": "Koffi Diomandé",
+    "age": 45,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Bouaké",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 786,
+      "variance_reponse_pourcent": 69,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-07-26T14:13:49.189821+00:00"
+  },
+  {
+    "system_user_id": "a49a6674-3984-4c77-87de-794958bffbae",
+    "prenom": "Bijou",
+    "nom": "Ilunga",
+    "full_name": "Bijou Ilunga",
+    "age": 47,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 352,
+      "variance_reponse_pourcent": 58,
+      "heures_actives": [
+        "08:00-21:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.189933+00:00"
+  },
+  {
+    "system_user_id": "cdd8c848-8a7d-463f-b438-34a7856e63e5",
+    "prenom": "Thomas",
+    "nom": "Dubois",
+    "full_name": "Thomas Dubois",
+    "age": 37,
+    "genre": "M",
+    "pays": "France",
+    "ville": "Paris",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 524,
+      "variance_reponse_pourcent": 60,
+      "heures_actives": [
+        "08:00-21:00"
+      ],
+      "jours_faibles": [
+        "Samedi",
+        "Lundi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-10-05T14:13:49.190046+00:00"
+  },
+  {
+    "system_user_id": "47aa0ef9-c6a3-4063-94ca-d199798b8b8b",
+    "prenom": "Sidiki",
+    "nom": "Fofana",
+    "full_name": "Sidiki Fofana",
+    "age": 40,
+    "genre": "M",
+    "pays": "CI",
+    "ville": "Yamoussoukro",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 699,
+      "variance_reponse_pourcent": 22,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Vendredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-05-08T14:13:49.190144+00:00"
+  },
+  {
+    "system_user_id": "1beb313f-61af-4a8f-a976-0fa2b7644667",
+    "prenom": "Cheikh",
+    "nom": "Seck",
+    "full_name": "Cheikh Seck",
+    "age": 31,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Touba",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 145,
+      "variance_reponse_pourcent": 62,
+      "heures_actives": [
+        "07:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-06-26T14:13:49.190393+00:00"
+  },
+  {
+    "system_user_id": "dce49911-bfd1-4abc-aada-c936ef5e139b",
+    "prenom": "Kabasele",
+    "nom": "Kasongo",
+    "full_name": "Kabasele Kasongo",
+    "age": 37,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 826,
+      "variance_reponse_pourcent": 105,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.190535+00:00"
+  },
+  {
+    "system_user_id": "68071ddd-fa1e-4d16-802e-608c1596174c",
+    "prenom": "Olivia",
+    "nom": "Tremblay",
+    "full_name": "Olivia Tremblay",
+    "age": 43,
+    "genre": "N",
+    "pays": "Canada",
+    "ville": "Ottawa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 282,
+      "variance_reponse_pourcent": 101,
+      "heures_actives": [
+        "08:00-22:00"
+      ],
+      "jours_faibles": [
+        "Vendredi",
+        "Jeudi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-04-02T14:13:49.190624+00:00"
+  },
+  {
+    "system_user_id": "ed4da65b-48a4-463e-ab80-cfb764c8d7d4",
+    "prenom": "Gloire",
+    "nom": "Ilunga",
+    "full_name": "Gloire Ilunga",
+    "age": 39,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Kisangani",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 593,
+      "variance_reponse_pourcent": 26,
+      "heures_actives": [
+        "07:00-21:00"
+      ],
+      "jours_faibles": [
+        "Vendredi",
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-05-27T14:13:49.190727+00:00"
+  },
+  {
+    "system_user_id": "6dd5b8ac-5316-495f-9a8b-e83b117acbd2",
+    "prenom": "Khady",
+    "nom": "Kane",
+    "full_name": "Khady Kane",
+    "age": 24,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Saint-Louis",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 456,
+      "variance_reponse_pourcent": 103,
+      "heures_actives": [
+        "07:00-21:00"
+      ],
+      "jours_faibles": [
+        "Dimanche"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-02-07T14:13:49.190847+00:00"
+  },
+  {
+    "system_user_id": "69184092-ee89-4f64-a8af-cff1183b7cd0",
+    "prenom": "Ousmane",
+    "nom": "Seck",
+    "full_name": "Ousmane Seck",
+    "age": 45,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Dakar",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "OHADA",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 741,
+      "variance_reponse_pourcent": 101,
+      "heures_actives": [
+        "10:00-21:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Mardi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-09-05T14:13:49.190927+00:00"
+  },
+  {
+    "system_user_id": "3aaa2e1e-2787-412c-be2b-bcf68d0fe1ce",
+    "prenom": "Yao",
+    "nom": "Bamba",
+    "full_name": "Yao Bamba",
+    "age": 44,
+    "genre": "N",
+    "pays": "CI",
+    "ville": "Yamoussoukro",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "expert",
+    "niveau_bavardage": "expressif",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 94,
+      "variance_reponse_pourcent": 35,
+      "heures_actives": [
+        "10:00-18:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-09-29T14:13:49.191216+00:00"
+  },
+  {
+    "system_user_id": "99e06c39-66fe-43e2-8937-229c01603e4e",
+    "prenom": "Bakayoko",
+    "nom": "Coulibaly",
+    "full_name": "Bakayoko Coulibaly",
+    "age": 24,
+    "genre": "F",
+    "pays": "CI",
+    "ville": "San-Pédro",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Ressources Humaines",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 765,
+      "variance_reponse_pourcent": 90,
+      "heures_actives": [
+        "07:00-21:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-07-01T14:13:49.191384+00:00"
+  },
+  {
+    "system_user_id": "4592fe32-ad49-4f78-a82e-bac818d12e74",
+    "prenom": "Coumba",
+    "nom": "Gueye",
+    "full_name": "Coumba Gueye",
+    "age": 30,
+    "genre": "M",
+    "pays": "Sénégal",
+    "ville": "Saint-Louis",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 729,
+      "variance_reponse_pourcent": 105,
+      "heures_actives": [
+        "08:00-21:00"
+      ],
+      "jours_faibles": [
+        "Lundi",
+        "Mercredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-07-01T14:13:49.191485+00:00"
+  },
+  {
+    "system_user_id": "31d01aeb-53cb-4ba6-955a-c9a0d59a7dfa",
+    "prenom": "Ibrahima",
+    "nom": "Seck",
+    "full_name": "Ibrahima Seck",
+    "age": 32,
+    "genre": "M",
+    "pays": "Sénégal",
+    "ville": "Mbour",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 474,
+      "variance_reponse_pourcent": 116,
+      "heures_actives": [
+        "07:00-19:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-03-28T14:13:49.191593+00:00"
+  },
+  {
+    "system_user_id": "4461af1e-f42a-44e6-9a9c-aa1e7407bf94",
+    "prenom": "Ousmane",
+    "nom": "Sy",
+    "full_name": "Ousmane Sy",
+    "age": 40,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Thiès",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 391,
+      "variance_reponse_pourcent": 49,
+      "heures_actives": [
+        "10:00-19:00"
+      ],
+      "jours_faibles": [
+        "Samedi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-03-28T14:13:49.191746+00:00"
+  },
+  {
+    "system_user_id": "d277a83b-d1d0-426a-bc41-63223309d268",
+    "prenom": "Sarah",
+    "nom": "Simon",
+    "full_name": "Sarah Simon",
+    "age": 47,
+    "genre": "F",
+    "pays": "France",
+    "ville": "Toulouse",
+    "langues": [
+      "Français",
+      "Swahili"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 349,
+      "variance_reponse_pourcent": 67,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mardi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-11-28T14:13:49.192120+00:00"
+  },
+  {
+    "system_user_id": "e6d9c4a9-9e9b-44a9-8991-9a4ae89a9be1",
+    "prenom": "Anny",
+    "nom": "Mukendi",
+    "full_name": "Anny Mukendi",
+    "age": 36,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Finance d'entreprise",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 526,
+      "variance_reponse_pourcent": 33,
+      "heures_actives": [
+        "09:00-20:00"
+      ],
+      "jours_faibles": [
+        "Jeudi",
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-03-03T14:13:49.192230+00:00"
+  },
+  {
+    "system_user_id": "c156ee52-f38d-40ff-b7ae-74ffc89d0e6b",
+    "prenom": "Charlotte",
+    "nom": "Gagnon",
+    "full_name": "Charlotte Gagnon",
+    "age": 48,
+    "genre": "F",
+    "pays": "Canada",
+    "ville": "Québec",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 708,
+      "variance_reponse_pourcent": 32,
+      "heures_actives": [
+        "07:00-18:00"
+      ],
+      "jours_faibles": [
+        "Dimanche",
+        "Lundi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-02-02T14:13:49.192401+00:00"
+  },
+  {
+    "system_user_id": "ba362121-c4c9-4b1b-a1a0-b51f3b977d52",
+    "prenom": "Placide",
+    "nom": "Mutombo",
+    "full_name": "Placide Mutombo",
+    "age": 30,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Bukavu",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 700,
+      "variance_reponse_pourcent": 120,
+      "heures_actives": [
+        "10:00-22:00"
+      ],
+      "jours_faibles": [
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-04-08T14:13:49.192487+00:00"
+  },
+  {
+    "system_user_id": "99866d0d-3bb3-4509-b05a-be29ffe6d9bc",
+    "prenom": "Placide",
+    "nom": "Kalonji",
+    "full_name": "Placide Kalonji",
+    "age": 46,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Mbuji-Mayi",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 756,
+      "variance_reponse_pourcent": 110,
+      "heures_actives": [
+        "09:00-21:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Dimanche"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2025-02-26T14:13:49.192638+00:00"
+  },
+  {
+    "system_user_id": "68641dbb-192e-4a11-b3d5-33d45c92b335",
+    "prenom": "Ibrahima",
+    "nom": "Diop",
+    "full_name": "Ibrahima Diop",
+    "age": 41,
+    "genre": "N",
+    "pays": "Sénégal",
+    "ville": "Saint-Louis",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Gestion de projet",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 52,
+      "variance_reponse_pourcent": 110,
+      "heures_actives": [
+        "09:00-22:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-06-01T14:13:49.192711+00:00"
+  },
+  {
+    "system_user_id": "56169240-572d-4ff7-9482-54d5634c0254",
+    "prenom": "Kabasele",
+    "nom": "Mubiala",
+    "full_name": "Kabasele Mubiala",
+    "age": 28,
+    "genre": "N",
+    "pays": "RDC",
+    "ville": "Lubumbashi",
+    "langues": [
+      "Français",
+      "Anglais"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 193,
+      "variance_reponse_pourcent": 54,
+      "heures_actives": [
+        "09:00-18:00"
+      ],
+      "jours_faibles": [
+        "Mardi",
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-05-08T14:13:49.192786+00:00"
+  },
+  {
+    "system_user_id": "f98e4220-acce-46b7-a57c-01675a6b8321",
+    "prenom": "Bijou",
+    "nom": "Kanyinda",
+    "full_name": "Bijou Kanyinda",
+    "age": 33,
+    "genre": "F",
+    "pays": "RDC",
+    "ville": "Kinshasa",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Comptabilité générale",
+    "type_profil": "social",
+    "niveau_bavardage": "normal",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 177,
+      "variance_reponse_pourcent": 57,
+      "heures_actives": [
+        "08:00-23:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-03-09T14:13:49.193042+00:00"
+  },
+  {
+    "system_user_id": "6362dfe4-ecf1-4285-8167-a8ff811761be",
+    "prenom": "Maxime",
+    "nom": "Lefebvre",
+    "full_name": "Maxime Lefebvre",
+    "age": 28,
+    "genre": "N",
+    "pays": "France",
+    "ville": "Paris",
+    "langues": [
+      "Français",
+      "Lingala"
+    ],
+    "competence_dominante": "Étudiant",
+    "type_profil": "social",
+    "niveau_bavardage": "faible",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 594,
+      "variance_reponse_pourcent": 59,
+      "heures_actives": [
+        "08:00-22:00"
+      ],
+      "jours_faibles": [
+        "Mercredi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-11-04T14:13:49.193117+00:00"
+  },
+  {
+    "system_user_id": "d6de9614-6813-4dbd-8dab-bc7b4941f379",
+    "prenom": "Faustin",
+    "nom": "Mutombo",
+    "full_name": "Faustin Mutombo",
+    "age": 25,
+    "genre": "M",
+    "pays": "RDC",
+    "ville": "Goma",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "conversationnel",
+    "niveau_bavardage": "faible",
+    "tonalite": "formel",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 513,
+      "variance_reponse_pourcent": 24,
+      "heures_actives": [
+        "08:00-23:00"
+      ],
+      "jours_faibles": [
+        "Jeudi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-05-08T14:13:49.193279+00:00"
+  },
+  {
+    "system_user_id": "e0ca4670-af0f-4979-ab04-90a7234e8457",
+    "prenom": "Khady",
+    "nom": "Diop",
+    "full_name": "Khady Diop",
+    "age": 48,
+    "genre": "F",
+    "pays": "Sénégal",
+    "ville": "Mbour",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Analyse de données",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 350,
+      "variance_reponse_pourcent": 106,
+      "heures_actives": [
+        "09:00-23:00"
+      ],
+      "jours_faibles": [
+        "Dimanche"
+      ],
+      "tz_offset": 0
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-06-07T14:13:49.193390+00:00"
+  },
+  {
+    "system_user_id": "111f198a-d0c7-4884-8793-ef78fe89bf79",
+    "prenom": "Jacob",
+    "nom": "Morin",
+    "full_name": "Jacob Morin",
+    "age": 33,
+    "genre": "M",
+    "pays": "Canada",
+    "ville": "Vancouver",
+    "langues": [
+      "Français"
+    ],
+    "competence_dominante": "Marketing digital",
+    "type_profil": "social",
+    "niveau_bavardage": "expressif",
+    "tonalite": "amical",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 549,
+      "variance_reponse_pourcent": 85,
+      "heures_actives": [
+        "07:00-20:00"
+      ],
+      "jours_faibles": [
+        "Mercredi",
+        "Vendredi"
+      ],
+      "tz_offset": -5
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2023-08-06T14:13:49.193519+00:00"
+  },
+  {
+    "system_user_id": "195d8703-e517-448e-8332-448d8e371d91",
+    "prenom": "Chloé",
+    "nom": "Dubois",
+    "full_name": "Chloé Dubois",
+    "age": 35,
+    "genre": "F",
+    "pays": "France",
+    "ville": "Toulouse",
+    "langues": [
+      "Français",
+      "Wolof"
+    ],
+    "competence_dominante": "Commerce international",
+    "type_profil": "expert",
+    "niveau_bavardage": "normal",
+    "tonalite": "neutre",
+    "signature_temporelle": {
+      "temps_moyen_reponse_sec": 735,
+      "variance_reponse_pourcent": 103,
+      "heures_actives": [
+        "09:00-23:00"
+      ],
+      "jours_faibles": [
+        "Vendredi",
+        "Samedi"
+      ],
+      "tz_offset": 1
+    },
+    "statut_profil": {
+      "profil_cliquable": false,
+      "raison": "Profil privé"
+    },
+    "is_system": true,
+    "created_at": "2024-06-01T14:13:49.193624+00:00"
+  }
+]

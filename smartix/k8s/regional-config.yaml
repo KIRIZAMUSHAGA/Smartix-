@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: regional-config
+  namespace: vibe-coding
+data:
+  regions.yaml: |
+    regions:
+      - name: eu-west
+        endpoint: https://vibe-coding-eu-west.smartix.com
+        location: Paris, France
+        active: true
+        priority: 1
+        latency_target_ms: 50
+      - name: us-east
+        endpoint: https://vibe-coding-us-east.smartix.com
+        location: North Virginia, USA
+        active: true
+        priority: 2
+        latency_target_ms: 80
+      - name: ap-southeast
+        endpoint: https://vibe-coding-ap-southeast.smartix.com
+        location: Singapore
+        active: false
+        priority: 3
+        latency_target_ms: 100
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: regional-config-eu-west
+  namespace: vibe-coding
+data:
+  region: "eu-west"
+  db_host: "postgres-eu-west.rds.amazonaws.com"
+  redis_host: "redis-eu-west.cache.amazonaws.com"
+  s3_bucket: "vibe-coding-eu-west"
+  cdn_url: "https://cdn-eu.vibe-coding.smartix.com"
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: regional-config-us-east
+  namespace: vibe-coding
+data:
+  region: "us-east"
+  db_host: "postgres-us-east.rds.amazonaws.com"
+  redis_host: "redis-us-east.cache.amazonaws.com"
+  s3_bucket: "vibe-coding-us-east"
+  cdn_url: "https://cdn-us.vibe-coding.smartix.com"

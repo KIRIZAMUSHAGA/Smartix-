@@ -1,0 +1,39 @@
+
+[
+  {
+    "chapterId": 1,
+    "series": "A",
+    "timePerQuestion": 30,
+    "questions": []
+  },
+  {
+    "chapterId": 1,
+    "series": "B",
+    "timePerQuestion": 30,
+    "questions": []
+  },
+  {
+    "chapterId": 1,
+    "series": "C",
+    "timePerQuestion": 30,
+    "questions": []
+  },
+  {
+    "chapterId": 2,
+    "series": "A",
+    "timePerQuestion": 30,
+    "questions": []
+  },
+  {
+    "chapterId": 2,
+    "series": "B",
+    "timePerQuestion": 30,
+    "questions": []
+  },
+  {
+    "chapterId": 2,
+    "series": "C",
+    "timePerQuestion": 30,
+    "questions": []
+  }
+]

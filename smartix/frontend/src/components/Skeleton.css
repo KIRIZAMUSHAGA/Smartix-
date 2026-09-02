@@ -1,0 +1,159 @@
+/* Skeleton Shimmer Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Base skeleton styles */
+.skeleton-card,
+.skeleton-post,
+.skeleton-group,
+.skeleton-user {
+  background: linear-gradient(
+    90deg,
+    #E0E0E0 0%,
+    #F0F0F0 50%,
+    #E0E0E0 100%
+  ) !important;
+  background-size: 2000px 100% !important;
+  animation: shimmer 2s infinite !important;
+  border-radius: 8px !important;
+  padding: 16px !important;
+  margin-bottom: 12px !important;
+  border: 1px solid #E8E8E8 !important;
+}
+
+/* Card Skeleton */
+.skeleton-card {
+  display: flex !important;
+  gap: 12px !important;
+}
+
+.skeleton-avatar {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(
+    90deg,
+    #E0E0E0 0%,
+    #F0F0F0 50%,
+    #E0E0E0 100%
+  ) !important;
+  background-size: 2000px 100% !important;
+  animation: shimmer 2s infinite !important;
+  flex-shrink: 0 !important;
+}
+
+.skeleton-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.skeleton-line {
+  height: 12px !important;
+  background: linear-gradient(
+    90deg,
+    #E0E0E0 0%,
+    #F0F0F0 50%,
+    #E0E0E0 100%
+  ) !important;
+  background-size: 2000px 100% !important;
+  animation: shimmer 2s infinite !important;
+  border-radius: 4px !important;
+}
+
+.skeleton-title {
+  height: 16px !important;
+  width: 100% !important;
+}
+
+.skeleton-text {
+  height: 12px !important;
+  width: 100% !important;
+}
+
+/* Post Skeleton */
+.skeleton-post {
+  padding: 16px !important;
+}
+
+.skeleton-meta {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+}
+
+.skeleton-image {
+  width: 100% !important;
+  height: 200px !important;
+  background: linear-gradient(
+    90deg,
+    #E0E0E0 0%,
+    #F0F0F0 50%,
+    #E0E0E0 100%
+  ) !important;
+  background-size: 2000px 100% !important;
+  animation: shimmer 2s infinite !important;
+  border-radius: 8px !important;
+  margin: 12px 0 !important;
+}
+
+.skeleton-actions {
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: space-around !important;
+  margin-top: 12px !important;
+}
+
+/* Group Skeleton */
+.skeleton-group {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+/* User Skeleton */
+.skeleton-user {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+  padding: 12px 16px !important;
+}
+
+.skeleton-user .skeleton-avatar {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Loader Container */
+.skeleton-loader {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .skeleton-card,
+  .skeleton-post,
+  .skeleton-group,
+  .skeleton-user,
+  .skeleton-avatar,
+  .skeleton-line,
+  .skeleton-image {
+    background: linear-gradient(
+      90deg,
+      #3A3A3A 0%,
+      #4A4A4A 50%,
+      #3A3A3A 100%
+    ) !important;
+    animation: shimmer 2s infinite !important;
+  }
+}

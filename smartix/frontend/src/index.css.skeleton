@@ -1,0 +1,46 @@
+/* 🎨 SMARTOHADA SKELETON SYSTEM - STYLES GLOBAUX */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Light Mode */
+.light .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e6e6e6 0%,
+    rgba(255, 255, 255, 0.14) 50%,
+    #e6e6e6 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Dark Mode */
+.dark .skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #2a2a2a 0%,
+    rgba(255, 255, 255, 0.09) 50%,
+    #2a2a2a 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Sans mode sélectionné */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #e6e6e6 0%,
+    rgba(255, 255, 255, 0.14) 50%,
+    #e6e6e6 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}

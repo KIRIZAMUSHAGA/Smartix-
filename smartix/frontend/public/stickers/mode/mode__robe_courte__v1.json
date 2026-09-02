@@ -1,0 +1,21 @@
+{
+  "id": "mode__robe_courte__v1",
+  "title": "Robe Courte",
+  "category": "mode",
+  "tags": [
+    "vetement"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 400,
+  "defaultHeight": 550,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

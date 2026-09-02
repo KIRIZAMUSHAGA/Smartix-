@@ -1,0 +1,97 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# IDE and editors
+.idea/
+.vscode/
+
+# Dependencies
+node_modules/
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Production builds
+/build
+dist/
+
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dump.rdb
+
+# System files
+.DS_Store
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.venv/
+.pythonlibs/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*token.json*
+*credentials.json*
+
+# Development tools
+chainlit.md
+.chainlit
+.ipynb_checkpoints/
+
+# Deployment
+.vercel
+
+# Archive files and large assets
+**/*.zip
+**/*.tar.gz
+**/*.tar
+**/*.tgz
+*.pack
+*.deb
+*.dylib
+
+# Build caches
+.cache/
+
+# Mobile development
+android-sdk/
+
+# Fichiers volumineux à ne pas commiter
+attached_assets/*.png
+attached_assets/*.jpg
+frontend/build/
+frontend/node_modules/.cache/
+
+# Ruff/Python linting
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+
+# Replit specific (keep these files)
+# Do NOT ignore: frontend/src/lib/
+# Do NOT ignore: .replit

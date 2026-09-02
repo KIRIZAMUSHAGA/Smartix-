@@ -1,0 +1,762 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #F8FAFC;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E9ECEF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #00B894, #0984E3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #00a182, #0773c9);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.4s ease-out;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00B894 0%, #0984E3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Button effects */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Input focus */
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #00B894;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Bounce animation for mascot */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(to right, #f0f0f0 0%, #e0e0e0 20%, #f0f0f0 40%, #f0f0f0 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Mobile navigation safe area */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-nav {
+    padding-bottom: calc(env(safe-area-inset-bottom) + 1rem);
+  }
+}
+
+/* Message bubble animations */
+@keyframes messageBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-messageBounce {
+  animation: messageBounce 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Glassmorphism bubble effect */
+.glass-bubble {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-bubble-dark {
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Reaction picker animation */
+@keyframes reactionPop {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-reactionPop {
+  animation: reactionPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Header animations */
+@keyframes headerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-headerFadeIn {
+  animation: headerFadeIn 0.5s ease-out;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradientShift {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+/* Online indicator pulse */
+@keyframes onlinePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0);
+  }
+}
+
+.animate-onlinePulse {
+  animation: onlinePulse 2s infinite;
+}
+
+/* Typing indicator animation */
+@keyframes typingDot {
+  0%, 60%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+.dot-typing {
+  animation: typingDot 1.4s infinite;
+}
+
+.dot-typing:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot-typing:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Message status indicator animation */
+@keyframes checkmark {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-checkmark {
+  animation: checkmark 0.3s ease-out;
+}
+
+/* Double checkmark pulse effect */
+@keyframes doublePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-doublePulse {
+  animation: doublePulse 2s ease-in-out infinite;
+}
+
+/* Avatar glow effect */
+@keyframes avatarGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 184, 148, 0.4), 0 0 40px rgba(9, 132, 227, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 184, 148, 0.6), 0 0 60px rgba(9, 132, 227, 0.3);
+  }
+}
+
+.animate-avatarGlow {
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+/* Online ring animation */
+@keyframes onlineRing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-onlineRing {
+  animation: onlineRing 2s ease-out infinite;
+}
+
+/* Avatar container hover effect */
+.avatar-container {
+  position: relative;
+}
+
+.avatar-container::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00B894, #0984E3);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: none;
+}
+
+.avatar-container.online::before {
+  animation: avatarGlow 3s ease-in-out infinite;
+}
+
+.avatar-container:hover::before {
+  opacity: 0.3;
+}
+
+/* Premium gradient animations */
+.gradient-premium {
+  background: linear-gradient(135deg, #00B894 0%, #0984E3 50%, #9B59B6 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.gradient-vivid {
+  background: linear-gradient(90deg, #00B894, #00D4FF, #00B894);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease infinite;
+}
+
+.gradient-futuristic {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-neon {
+  background: linear-gradient(45deg, #00B894, #FF6B9D, #0984E3);
+  background-size: 300% 300%;
+  animation: gradientShift 4s ease infinite;
+}
+
+/* Text gradient for premium feel */
+.text-gradient {
+  background: linear-gradient(135deg, #00B894, #0984E3, #9B59B6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Dark mode premium theme */
+.dark-mode-premium {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(20, 20, 50, 0.8) 100%);
+}
+
+/* Button premium glow */
+.btn-premium {
+  background: linear-gradient(135deg, #00B894, #0984E3);
+  box-shadow: 0 0 20px rgba(0, 184, 148, 0.3), 0 0 40px rgba(9, 132, 227, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  box-shadow: 0 0 30px rgba(0, 184, 148, 0.5), 0 0 60px rgba(9, 132, 227, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Page transitions */
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pageSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+.page-enter {
+  animation: pageSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.page-exit {
+  animation: pageSlideOut 0.3s ease-out;
+}
+
+/* Conversation open animation */
+@keyframes conversationOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.conversation-enter {
+  animation: conversationOpen 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Tap feedback */
+@keyframes tapFeedback {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tap-feedback {
+  animation: tapFeedback 0.2s ease-out;
+}
+
+/* Message send animation */
+@keyframes messageSend {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.message-send {
+  animation: messageSend 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Splash screen fade */
+@keyframes splashFade {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.splash-screen {
+  animation: splashFade 2s ease-out forwards;
+}
+
+/* Success pulse */
+@keyframes successPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.success-pulse {
+  animation: successPulse 0.5s ease-out;
+}
+
+/* Voice message waveform animation */
+@keyframes waveform {
+  0%, 100% {
+    height: 6px;
+  }
+  50% {
+    height: 24px;
+  }
+}
+
+.voice-wave {
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  margin: 0 2px;
+  animation: waveform 0.6s ease-in-out infinite;
+  background: linear-gradient(180deg, #00B894, #0984E3);
+  border-radius: 2px;
+}
+
+.voice-wave:nth-child(1) { animation-delay: 0s; }
+.voice-wave:nth-child(2) { animation-delay: 0.1s; }
+.voice-wave:nth-child(3) { animation-delay: 0.2s; }
+.voice-wave:nth-child(4) { animation-delay: 0.3s; }
+.voice-wave:nth-child(5) { animation-delay: 0.4s; }
+
+/* Quoted message border animation */
+@keyframes quoteBorder {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.quote-border {
+  position: relative;
+  border-left: 4px solid #00B894;
+  padding-left: 12px;
+}
+
+.quote-border::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #00B894, transparent);
+}
+
+/* Multimedia preview animations */
+@keyframes mediaBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.media-preview {
+  animation: mediaBounce 0.4s ease-out;
+}
+
+/* Voice recorder styling */
+.voice-recorder {
+  background: linear-gradient(135deg, #00B894, #0984E3);
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 184, 148, 0.3);
+}
+
+.voice-timer {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* Background themes */
+.theme-gradient-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.theme-gradient-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+.theme-gradient-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.theme-gradient-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+.theme-gradient-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+.theme-gradient-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+
+.bg-theme-preview {
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+}
+
+.bg-theme-preview:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.bg-theme-preview.active {
+  border-color: #00B894;
+  box-shadow: 0 0 20px #00B894;
+}
+
+/* Prevent menu closing on content click */
+.menu-content {
+  pointer-events: auto;
+}
+
+.menu-trigger {
+  pointer-events: auto;
+}/* Neon Glow Effect */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.neon-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+/* Fast Navigation Transitions */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page transition animations */
+@keyframes fadeInFast {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFast {
+  from {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply fast animations to routes */
+.min-h-screen {
+  animation: fadeInFast 150ms ease-out;
+}
+
+/* Button click feedback */
+button {
+  transition: all 75ms ease-out;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Link transitions */
+a {
+  transition: all 75ms ease-out;
+}
+
+/* Fast scroll performance */
+html {
+  scroll-behavior: auto;
+}
+
+@import './styles/books3d.css';

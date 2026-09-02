@@ -1,0 +1,52 @@
+# ─── Vibe-Coding Sandbox — Image multi-langage ───────────────────────────────
+#
+# Image légère pour exécuter les projets utilisateurs de manière isolée.
+# Utilisateur non-root `sandbox` pour la sécurité.
+# Multi-stage : dépendances Node + Python dans une seule image.
+
+FROM node:20-slim AS base
+
+# ── Dépendances système ──────────────────────────────────────────────────────
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3 \
+    python3-pip \
+    python3-venv \
+    curl \
+    git \
+    build-essential \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+
+# ── Typescript + outils globaux ───────────────────────────────────────────────
+RUN npm install -g \
+    typescript \
+    ts-node \
+    nodemon \
+    serve \
+    2>/dev/null || true
+
+# ── Créer un utilisateur non-root ────────────────────────────────────────────
+RUN useradd -m -u 1000 -s /bin/bash sandbox && \
+    mkdir -p /home/sandbox/project && \
+    chown -R sandbox:sandbox /home/sandbox
+
+# ── Répertoire de travail ─────────────────────────────────────────────────────
+WORKDIR /home/sandbox/project
+USER sandbox
+
+# ── Variables d'environnement ────────────────────────────────────────────────
+ENV NODE_ENV=development \
+    PORT=3000 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PATH="/home/sandbox/.local/bin:${PATH}"
+
+# ── Health check ─────────────────────────────────────────────────────────────
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:${PORT}/ || exit 1
+
+# ── Point d'entrée ───────────────────────────────────────────────────────────
+EXPOSE 3000
+
+# Commande par défaut (surchargée par ContainerManager)
+CMD ["node", "index.js"]

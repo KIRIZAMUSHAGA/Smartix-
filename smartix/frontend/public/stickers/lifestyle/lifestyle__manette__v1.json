@@ -1,0 +1,21 @@
+{
+  "id": "lifestyle__manette__v1",
+  "title": "Manette",
+  "category": "lifestyle",
+  "tags": [
+    "gaming"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 400,
+  "defaultHeight": 250,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "lifestyle__ballon_foot__v1",
+  "title": "Ballon Foot",
+  "category": "lifestyle",
+  "tags": [
+    "sport"
+  ],
+  "formats": [
+    "svg"
+  ],
+  "defaultWidth": 350,
+  "defaultHeight": 350,
+  "anchor": {
+    "x": 0.5,
+    "y": 0.5
+  },
+  "colorizable": false,
+  "license": "royalty_free",
+  "cached": true,
+  "size": "medium"
+}

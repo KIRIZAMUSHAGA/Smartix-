@@ -1,0 +1,636 @@
+PROMPT FINAL (to send first to Replit AI)
+---------------------------------------
+MISSION
+You are a senior full-stack engineer expert in React, Node.js, Express, Cloud Storage, optimisation video, Infinite Scroll, CDN and mobile design. Your mission: implement an infinite video scroll system for SmartOHADA.
+
+STRUCTURE (as instructed)
+- Frontend: React + Tailwind + Axios
+- Backend: Node.js + Express (or Python/FastAPI depending on chosen stack)
+- DB: PostgreSQL (or MongoDB depending on stack)
+- Storage: /uploads/videos or cloud
+- Integrate: YouTube, Pexels, Pixabay, Vimeo, NASA, Archive.org, TED, Videvo, MixKit, etc.
+
+OBJECTIVE
+Build a smooth infinite feed mixing:
+1) internal uploads (user videos)
+2) public videos (YouTube, Vimeo, NASA...)
+3) open-source videos (Pexels, Pixabay, MixKit...)
+
+Each video item must include:
+- author avatar + name
+- source badge
+- description
+- like / comment / share buttons
+- follow for internal creators
+
+TASKS
+1) Frontend VideoFeed.jsx with IntersectionObserver, lazy-loading, autoplay only when visible, prefetching, loader.
+2) Backend endpoints: GET /videos?page=&limit= (paginated mixed results), POST /videos/upload (handle compression, thumbnail, storage, DB insert).
+3) Normalize all sources into the same JSON shape.
+4) Integrate 12+ platforms via API or scraping with care for robots.txt and rate limits.
+5) Implement caching (Redis optional), cursor-based pagination, compression, adaptive loading (Network Information API).
+6) Design: TikTok-like, avatar rounded, badges, centered video, modern buttons.
+7) Deliver full project, optimized to handle 1k+ videos, compiling without errors.
+
+END PROMPT
+---------------------------------------
+
+PROJECT BUNDLE — Scraping + API Mix (Python + FastAPI + Motor) - Full files follow.
+Each file is marked as: ===== FILE: <path> =====
+Copy each section into the corresponding file path in your repo.
+
+===== FILE: .env.example =====
+
+# MongoDB
+MONGO_URL=mongodb+srv://user:password@cluster.mongodb.net/smartohada
+DATABASE_NAME=smartohada
+
+# APIs (optional but recommended)
+PEXELS_API_KEY=YOUR_PEXELS_KEY
+PIXABAY_API_KEY=YOUR_PIXABAY_API_KEY
+MIXKIT_API_KEY=
+VIDEVO_API_KEY=
+
+# Behavior
+FETCH_INTERVAL_MINUTES=30
+CACHE_TTL_SECONDS=3600
+
+# Server
+BACKEND_HOST=http://localhost:8000
+NEXT_PUBLIC_BACKEND_URL=http://localhost:8000
+SCRAPER_USER_AGENT=SmartOHADA-VideoBot/1.0
+
+
+
+===== FILE: backend/requirements.txt =====
+
+fastapi
+uvicorn[standard]
+motor
+pydantic
+python-dotenv
+requests
+beautifulsoup4
+APScheduler
+hashlib
+python-multipart
+aiohttp
+readability-lxml
+newspaper3k
+feedparser
+python-slugify
+
+
+
+===== FILE: backend/app/config.py =====
+
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+MONGO_URL = os.getenv("MONGO_URL")
+DATABASE_NAME = os.getenv("DATABASE_NAME", "smartohada")
+PEXELS_API_KEY = os.getenv("PEXELS_API_KEY")
+PIXABAY_API_KEY = os.getenv("PIXABAY_API_KEY")
+FETCH_INTERVAL_MINUTES = int(os.getenv("FETCH_INTERVAL_MINUTES", "30"))
+CACHE_TTL_SECONDS = int(os.getenv("CACHE_TTL_SECONDS", "3600"))
+BACKEND_HOST = os.getenv("BACKEND_HOST", "http://localhost:8000")
+USER_AGENT = os.getenv("SCRAPER_USER_AGENT", "SmartOHADA-VideoBot/1.0")
+
+
+
+===== FILE: backend/app/db.py =====
+
+from motor.motor_asyncio import AsyncIOMotorClient
+from app.config import MONGO_URL, DATABASE_NAME
+
+client = AsyncIOMotorClient(MONGO_URL)
+db = client[DATABASE_NAME]
+
+
+
+===== FILE: backend/app/models.py =====
+
+from pydantic import BaseModel, Field
+from typing import Optional
+from datetime import datetime
+from bson import ObjectId
+
+class PyObjectId(ObjectId):
+    @classmethod
+    def __get_validators__(cls):
+        yield cls.validate
+    @classmethod
+    def validate(cls, v):
+        if not ObjectId.is_valid(v):
+            raise ValueError("Invalid objectid")
+        return ObjectId(v)
+
+class VideoMeta(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id")
+    title: str
+    description: Optional[str] = None
+    source: Optional[str] = None
+    type: str  # open_source | external | user
+    video_url: str
+    embed_html: Optional[str] = None
+    thumbnail_url: Optional[str] = None
+    duration: Optional[int] = None
+    license: Optional[str] = None
+    author_name: Optional[str] = None
+    author_avatar: Optional[str] = None
+    created_at: datetime
+    fetched_at: Optional[datetime] = None
+
+    class Config:
+        arbitrary_types_allowed = True
+        json_encoders = {ObjectId: str}
+
+
+
+===== FILE: backend/app/services/scraper_sources.py =====
+
+"""
+Implementation of many sources: mix of official APIs and HTML scrapers / oEmbed.
+We include ~15 sources. Each fetch function returns list of metadata dicts.
+"""
+
+import requests
+from app.config import PEXELS_API_KEY, PIXABAY_API_KEY, USER_AGENT, BACKEND_HOST
+from datetime import datetime
+from app.services.video_service import cache_get, cache_set
+from app.services.avatars import author_name_for_source, avatar_url_for_source
+
+HEADERS = {"User-Agent": USER_AGENT}
+
+def _norm_item(video_url, title, thumb=None, source="unknown", duration=None, license="unknown"):
+    return {
+        "title": title or "Vidéo",
+        "description": None,
+        "source": source,
+        "type": "open_source",
+        "video_url": video_url,
+        "thumbnail_url": thumb,
+        "duration": duration,
+        "license": license,
+        "author_name": author_name_for_source(source),
+        "author_avatar": avatar_url_for_source(source),
+        "created_at": datetime.utcnow(),
+        "fetched_at": datetime.utcnow()
+    }
+
+def fetch_pexels(query="africa", per_page=15):
+    if not PEXELS_API_KEY: return []
+    headers = {"Authorization": PEXELS_API_KEY}
+    params = {"query": query, "per_page": per_page}
+    try:
+        r = requests.get("https://api.pexels.com/videos/search", headers=headers, params=params, timeout=10)
+        if r.status_code != 200: return []
+        data = r.json()
+        items = []
+        for v in data.get("videos", []):
+            files = v.get("video_files", [])
+            video_url = files[0].get("link") if files else None
+            thumb = v.get("image")
+            title = v.get("user", {}).get("name") or v.get("url") or "Pexels video"
+            if video_url:
+                items.append(_norm_item(video_url, title, thumb, "Pexels", v.get("duration"), "pexels"))
+        return items
+    except:
+        return []
+
+def fetch_pixabay(query="africa", per_page=15):
+    if not PIXABAY_API_KEY: return []
+    params = {"key": PIXABAY_API_KEY, "q": query, "per_page": per_page}
+    try:
+        r = requests.get("https://pixabay.com/api/videos/", params=params, timeout=10)
+        if r.status_code != 200: return []
+        data = r.json()
+        items = []
+        for v in data.get("hits", []):
+            video_url = v.get("videos", {}).get("medium", {}).get("url")
+            thumb = v.get("pictures", [{}])[0].get("picture")
+            title = v.get("tags") or "Pixabay video"
+            if video_url:
+                items.append(_norm_item(video_url, title, thumb, "Pixabay", v.get("duration"), "pixabay"))
+        return items
+    except:
+        return []
+
+def fetch_mixkit(per_page=12):
+    items = []
+    try:
+        r = requests.get("https://mixkit.co/free-stock-video", headers=HEADERS, timeout=10)
+        if r.status_code == 200:
+            from bs4 import BeautifulSoup
+            soup = BeautifulSoup(r.text, "html.parser")
+            cards = soup.select("a.js-video-link")[:per_page]
+            for c in cards:
+                href = c.get("href")
+                title = c.get("title") or "Mixkit video"
+                if href:
+                    page = requests.get("https://mixkit.co"+href, headers=HEADERS, timeout=8)
+                    if page.status_code==200:
+                        sp = BeautifulSoup(page.text,"html.parser")
+                        vtag = sp.find("a", {"class":"download-button"})
+                        video_url = vtag.get("href") if vtag else None
+                        thumb = sp.find("meta", {"property":"og:image"})
+                        thumb = thumb.get("content") if thumb else None
+                        if video_url:
+                            items.append(_norm_item(video_url, title, thumb, "Mixkit", None, "mixkit"))
+    except Exception:
+        pass
+    return items
+
+def fetch_generic_site_for_videos(url, source_name, per_page=10):
+    items = []
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=10)
+        if r.status_code != 200: return items
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(r.text, "html.parser")
+        videos = soup.find_all("video")[:per_page]
+        for v in videos:
+            src = v.get("src") or (v.find("source") and v.find("source").get("src"))
+            if not src: continue
+            thumb = None
+            img = v.get("poster")
+            if img: thumb = img
+            title = v.get("title") or f"{source_name} clip"
+            items.append(_norm_item(src, title, thumb, source_name, None, "public"))
+    except Exception:
+        pass
+    return items
+
+def fetch_all_sources():
+    results = []
+    results += fetch_pexels()
+    results += fetch_pixabay()
+    results += fetch_mixkit()
+    generic_sites = [
+        ("https://coverr.co/", "Coverr"),
+        ("https://www.lifeofvids.com/", "LifeOfVids"),
+        ("https://www.videvo.net/", "Videvo"),
+        ("https://www.vidsplay.com/", "Vidsplay"),
+        ("https://www.splitshire.com/", "Splitshire"),
+        ("https://motionplaces.com/", "MotionPlaces"),
+        ("https://mazwai.com/", "Mazwai"),
+        ("https://archive.org/details/movies", "ArchiveOrg"),
+        ("https://commons.wikimedia.org/wiki/Category:Videos", "Wikimedia"),
+        ("https://distillvideo.com/", "Distill"),
+        ("https://clipstill.com/", "Clipstill"),
+    ]
+    for url, name in generic_sites:
+        results += fetch_generic_site_for_videos(url, name, per_page=8)
+    # dedupe by video_url
+    seen = set()
+    uniq = []
+    for r in results:
+        if r["video_url"] and r["video_url"] not in seen:
+            seen.add(r["video_url"])
+            uniq.append(r)
+    return uniq
+
+
+
+===== FILE: backend/app/services/requests_cache.py =====
+
+# simple in-memory cache used for API calls (also saved to Mongo optional)
+import time
+_cache = {}
+
+def requests_cache_get(key):
+    v = _cache.get(key)
+    if not v: return None
+    payload, expires = v
+    if expires < time.time():
+        del _cache[key]
+        return None
+    return payload
+
+def requests_cache_set(key, payload, ttl=3600):
+    _cache[key] = (payload, time.time() + ttl)
+
+
+
+===== FILE: backend/app/aggregator.py =====
+
+"""
+High-level aggregator: fetches from multiple sources, normalizes data,
+stores to Mongo via video_service.
+"""
+from app.services.scraper_sources import fetch_all_sources
+from app.services.video_service import bulk_insert
+
+async def run_once():
+    items = fetch_all_sources()
+    if items:
+        await bulk_insert(items)
+
+
+
+===== FILE: backend/app/scheduler.py =====
+
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from app.config import FETCH_INTERVAL_MINUTES
+from app.aggregator import run_once
+
+scheduler = AsyncIOScheduler()
+
+def start_scheduler():
+    scheduler.add_job(lambda:__import__('asyncio').get_event_loop().create_task(run_once()), 'interval', minutes=FETCH_INTERVAL_MINUTES, id='fetch_all', max_instances=1)
+    scheduler.start()
+
+
+
+===== FILE: backend/create_indexes.py =====
+
+import asyncio
+from app.db import db
+
+async def create_indexes():
+    await db.videos.create_index([("video_url", 1)], unique=True)
+    await db.videos.create_index([("fetched_at", -1)])
+    await db.videos.create_index([("title", "text")])
+
+if __name__ == '__main__':
+    asyncio.run(create_indexes())
+
+
+
+===== FILE: backend/app/main.py =====
+
+from fastapi import FastAPI
+from app.routes import videos, admin
+from app.scheduler import start_scheduler
+
+app = FastAPI(title="SmartOHADA Video Aggregator")
+
+app.include_router(videos.router)
+app.include_router(admin.router)
+
+start_scheduler()
+
+@app.on_event("startup")
+async def startup():
+    try:
+        from create_indexes import create_indexes
+        await create_indexes()
+    except Exception:
+        pass
+
+
+
+===== FILE: frontend/package.json =====
+
+{
+  "name": "smartohada-video-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "12.3.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "swr": "1.3.0",
+    "isomorphic-dompurify": "0.14.0"
+  }
+}
+
+
+
+===== FILE: frontend/next.config.js =====
+
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['images.pexels.com','i.vimeocdn.com','i.ytimg.com','pixabay.com','cdn.pixabay.com','mixkit.imgix.net','images.unsplash.com']
+  }
+}
+
+
+
+===== FILE: frontend/pages/videos/index.jsx =====
+
+import dynamic from 'next/dynamic'
+const VideoFeed = dynamic(() => import('../../components/VideoFeed'), { ssr: false })
+
+export default function VideosPage(){
+  return <VideoFeed />
+}
+
+
+
+===== FILE: frontend/components/VideoFeed.jsx =====
+
+'use client';
+import { useEffect, useRef, useState } from "react";
+import VideoCard from "./VideoCard";
+
+export default function VideoFeed(){
+  const [videos, setVideos] = useState([]);
+  const [page, setPage] = useState(1);
+  const containerRef = useRef(null);
+  const activeIndexRef = useRef(0);
+  const loadingRef = useRef(false);
+
+  useEffect(()=>{ loadPage(1); }, []);
+
+  const loadPage = async (p) => {
+    if (loadingRef.current) return;
+    loadingRef.current = true;
+    try {
+      const res = await fetch(`/api/videos?page=${p}&limit=10`);
+      const data = await res.json();
+      if (data && data.length) {
+        setVideos(v => p === 1 ? data : [...v, ...data]);
+        setPage(p);
+      }
+    } catch(e){ console.error(e) }
+    finally { loadingRef.current = false; }
+  };
+
+  const pauseAllExcept = (index) => {
+    const vids = document.querySelectorAll(".vh-video");
+    vids.forEach((v,i) => {
+      try { if (i === index) { v.play(); } else { v.pause(); } } catch(e){}
+    });
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const onScroll = () => {
+      const scrollPos = container.scrollTop;
+      const height = container.clientHeight;
+      const newIndex = Math.round(scrollPos / height);
+      if (newIndex !== activeIndexRef.current) {
+        activeIndexRef.current = newIndex;
+        pauseAllExcept(newIndex);
+        if (newIndex >= videos.length - 3) {
+          loadPage(page + 1);
+        }
+      }
+    };
+    container.addEventListener("scroll", onScroll);
+    return () => container.removeEventListener("scroll", onScroll);
+  }, [videos, page]);
+
+  useEffect(()=> {
+    if (videos.length>0) setTimeout(()=> pauseAllExcept(0), 200);
+  }, [videos]);
+
+  return (
+    <div ref={containerRef} className="h-screen overflow-y-scroll snap-y snap-mandatory">
+      {videos.map((v,i)=>( 
+        <div key={v._id} className="h-screen w-full snap-start flex items-center justify-center bg-black">
+          <VideoCard video={v} index={i} />
+        </div>
+      ))}
+      <div style={{height:60}} />
+    </div>
+  );
+}
+
+
+
+===== FILE: frontend/components/VideoCard.jsx =====
+
+import Link from 'next/link'
+
+export default function VideoCard({video, index}) {
+  if (video.type === 'open_source') {
+    return (
+      <div style={{width:"100%", height:"100%", position:"relative"}}>
+        <video
+          className="vh-video"
+          src={video.video_url}
+          style={{width:"100%", height:"100%", objectFit:"cover"}}
+          controls={false}
+          muted
+          playsInline
+          preload={index===0 ? "auto" : "metadata"}
+        />
+        <div style={{position:"absolute", bottom:20, left:16, color:"#fff"}}>
+          <div style={{display:'flex',alignItems:'center', gap:8}}>
+            <img src={video.author_avatar} style={{width:40,height:40,borderRadius:999}} alt="" />
+            <div>
+              <div style={{fontWeight:700}}>{video.title}</div>
+              <div style={{fontSize:13,color:'#ddd'}}>{video.author_name} • {video.license}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div style={{width:"100%",height:"100%",position:"relative"}}>
+        <img src={video.thumbnail_url} style={{width:"100%",height:"100%",objectFit:"cover"}} alt="" />
+        <Link href={`/videos/${video._id}`}><button style={{position:'absolute',left:20,bottom:20}}>Lire</button></Link>
+        <div style={{position:"absolute",bottom:20,left:120,color:"#fff"}}>
+          <div style={{fontWeight:700}}>{video.title}</div>
+          <div style={{fontSize:13,color:'#ddd'}}>{video.source}</div>
+        </div>
+      </div>
+    );
+  }
+}
+
+
+
+===== FILE: frontend/pages/videos/[id].jsx =====
+
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
+import DOMPurify from 'isomorphic-dompurify'
+
+export default function VideoDetail(){
+  const router = useRouter()
+  const { id } = router.query
+  const [item, setItem] = useState(null)
+
+  useEffect(()=> {
+    if(!id) return
+    fetch(`/api/videos/${id}`).then(r=>r.json()).then(setItem).catch(console.error)
+  }, [id])
+
+  if(!item) return <div>Chargement...</div>
+
+  return (
+    <div style={{padding:18, maxWidth:900, margin:'0 auto'}}>
+      <h1>{item.title}</h1>
+      <div style={{color:'#777', marginBottom:8}}>{item.author_name} • {item.source}</div>
+
+      {item.type==='open_source' && (
+        <video controls style={{width:'100%', maxHeight:520}} src={item.video_url}></video>
+      )}
+
+      {item.type==='external' && item.embed_html && (
+        <div dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(item.embed_html)}} />
+      )}
+
+      <div style={{marginTop:12}}>
+        <a href={item.video_url} target="_blank" rel="noopener noreferrer">Ouvrir la source / Télécharger</a>
+      </div>
+    </div>
+  )
+}
+
+
+
+===== FILE: README_FINSTRUCTIONS.md =====
+
+SmartOHADA Video Aggregator — Scraping + API MIX (Python + FastAPI)
+
+1) Create virtualenv
+   python -m venv .venv
+   source .venv/bin/activate
+
+2) Install backend deps
+   pip install -r backend/requirements.txt
+
+3) Fill .env (MONGO_URL, API keys)
+
+4) Start backend
+   uvicorn backend.app.main:app --reload --port 8000
+
+5) Create indexes (optional)
+   python backend/create_indexes.py
+
+6) Start frontend
+   cd frontend
+   npm install
+   npm run dev
+
+Access:
+- Frontend: http://localhost:3000/videos
+- Backend: http://localhost:8000/api/videos?page=1
+
+
+
+===== FILE: NOTES_SCRAPER_POLICIES.md =====
+
+Important legal & practical notes:
+- Only scrape content that is explicitly allowed. Use official APIs where possible.
+- Respect robots.txt, rate limits, and the platform's Terms of Service.
+- For websites that require JS rendering, consider Playwright for debug only (avoid mass scraping).
+- Cache results; don't reload the same pages too often (CONFIG: CACHE_TTL_SECONDS).
+- Attribution: if a source requires attribution (CC-BY), show it in the UI.
+- For heavy use, move heavy fetches to worker processes (Celery / RQ) and use S3/CDN if you store assets.
+
+
+
+===== FILE: TODOs_AND_IMPROVEMENTS.txt =====
+
+- Add user uploads with size limits and optional S3 store.
+- Add likes/comments endpoints & UI.
+- Add admin UI to manage sources.
+- Add better OEmbed detection for external embeds (YouTube/TikTok).
+- Add Playwright integration for JS-heavy pages (as optional worker).
+- Add unit tests and CI.
+- Add rate limiting and exponential backoff for scrapers.
+
+

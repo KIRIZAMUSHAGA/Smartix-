@@ -1,0 +1,59 @@
+version: '3.8'
+
+# ─── Vibe-Coding Infrastructure — Sprint 7 ───────────────────────────────────
+#
+# Services :
+#   - postgres          : Base de données PostgreSQL partagée (multi-projet)
+#   - postgres_exporter : Métriques Prometheus pour PostgreSQL
+#
+# Usage :
+#   docker compose -f docker/docker-compose.db.yml up -d
+#   docker compose -f docker/docker-compose.yml -f docker/docker-compose.db.yml up -d
+
+networks:
+  vibe_network:
+    external: true
+    name: sandbox_network
+
+volumes:
+  postgres_data:
+    driver: local
+
+services:
+
+  # ── PostgreSQL — Base de données principale ──────────────────────────────────
+  postgres:
+    image: postgres:15-alpine
+    container_name: vibe_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: ${PG_USER:-postgres}
+      POSTGRES_DB: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "${PG_PORT:-5432}:5432"
+    networks:
+      - vibe_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Postgres Exporter — Métriques Prometheus ──────────────────────────────────
+  postgres_exporter:
+    image: prometheuscommunity/postgres-exporter:latest
+    container_name: vibe_postgres_exporter
+    restart: unless-stopped
+    environment:
+      DATA_SOURCE_NAME: "postgresql://${PG_USER:-postgres}:${POSTGRES_PASSWORD}@postgres:5432/postgres?sslmode=disable"
+    ports:
+      - "9187:9187"
+    networks:
+      - vibe_network
+    depends_on:
+      postgres:
+        condition: service_healthy

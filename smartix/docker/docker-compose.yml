@@ -1,0 +1,106 @@
+version: "3.9"
+
+# ─── Vibe-Coding Infrastructure — Sprint 5 ───────────────────────────────────
+#
+# Services :
+#   - nginx         : Reverse proxy + SSL termination
+#   - certbot       : TLS automatique (Let's Encrypt)
+#   - sandbox-net   : Réseau isolé pour les containers sandbox
+
+networks:
+  sandbox_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+    driver_opts:
+      com.docker.network.bridge.enable_icc: "false"  # Isolation inter-containers
+
+  public_network:
+    driver: bridge
+
+volumes:
+  certs:
+  nginx_conf:
+  nginx_www:
+
+services:
+
+  # ── Reverse Proxy Nginx ──────────────────────────────────────────────────────
+  nginx:
+    image: nginx:alpine
+    container_name: vibe_nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./backend/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./backend/nginx/nginx-ssl.conf:/etc/nginx/conf.d/ssl.conf:ro
+      - certs:/etc/letsencrypt:ro
+      - nginx_www:/var/www/certbot:ro
+    networks:
+      - public_network
+      - sandbox_network
+    depends_on:
+      - certbot
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+
+  # ── Certbot TLS automatique ──────────────────────────────────────────────────
+  certbot:
+    image: certbot/certbot:latest
+    container_name: vibe_certbot
+    restart: unless-stopped
+    volumes:
+      - certs:/etc/letsencrypt
+      - nginx_www:/var/www/certbot
+    networks:
+      - public_network
+    entrypoint: >
+      /bin/sh -c "
+        trap exit TERM;
+        while :; do
+          certbot renew --webroot -w /var/www/certbot --quiet;
+          sleep 12h & wait $${!};
+        done
+      "
+
+  # ── Backend FastAPI ──────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: vibe_backend
+    restart: unless-stopped
+    environment:
+      - MONGO_URL=${MONGO_URL}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379}
+      - PROJECTS_DIR=/projects
+      - SANDBOX_NETWORK=sandbox_network
+      - CLOUDFLARE_API_KEY=${CLOUDFLARE_API_KEY}
+      - CLOUDFLARE_ZONE_ID=${CLOUDFLARE_ZONE_ID}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Accès Docker
+      - ./projects:/projects
+    networks:
+      - public_network
+      - sandbox_network
+    ports:
+      - "8000:8000"
+
+  # ── Redis ────────────────────────────────────────────────────────────────────
+  redis:
+    image: redis:7-alpine
+    container_name: vibe_redis
+    restart: unless-stopped
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru
+    networks:
+      - public_network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s

@@ -1,0 +1,190 @@
+Spécification complète du Système de Commentaires SmartOHADA (pour IA Replit)
+
+1. Objectif
+
+Créer un système de commentaires moderne, multimédia, intelligent et
+adapté à un réseau social éducatif.
+
+------------------------------------------------------------------------
+
+2. Structure générale du système de commentaires
+
+Le module doit inclure : 1. Zone d’ajout de commentaire (Composer) 2.
+Liste des commentaires 3. Système de réponses (threads) 4. Réactions
+avancées 5. Options (modifier, supprimer, copier lien…) 6. Gestion IA
+(ton, résumé, pertinence) 7. Design UI complet
+
+------------------------------------------------------------------------
+
+3. Zone d’ajout de commentaire (Composer)
+
+3.1 Médias supportés
+
+-   Texte
+-   Audio (enregistrement micro)
+-   Vidéo (capture + upload)
+-   GIF (recherche)
+-   Stickers
+
+3.2 Comportement dynamique
+
+-   Le composant change selon le type choisi :
+    -   Texte → textarea expansible
+    -   Audio → waveform + bouton “Hold to Record”
+    -   Vidéo → mini-enregistreur
+    -   GIF → navigateur interne
+    -   Stickers → grille organisée
+-   Affichage avatar + nom de l’utilisateur
+-   Auto-enregistrement du brouillon
+-   Suggestions automatiques (hashtags, mentions)
+-   Loader lors de l’envoi du commentaire
+
+------------------------------------------------------------------------
+
+4. Affichage d’un commentaire
+
+4.1 Informations affichées
+
+Chaque commentaire doit présenter : - Avatar
+- Nom + @pseudo
+- Rôle (Étudiant, Comptable, Prof…)
+- Temps (ex : il y a 2h)
+
+4.2 Contenu
+
+Selon le type : - Texte → formatté
+- Audio → waveform
+- Vidéo → mini-player
+- GIF → animé
+- Sticker → affichage large
+
+4.3 Réactions
+
+Réactions disponibles : - 👍 Utile
+- 💡 Pertinent
+- 🎓 Scolaire
+- 🤝 Solidaire
+- ⭐ Expert
+
+Comportement : - Animation au clic
+- Compteurs visibles
+- Possibilité d’annuler sa réaction
+
+4.4 Actions utilisateur
+
+Chaque commentaire doit avoir : - Modifier (si auteur)
+- Supprimer (si auteur)
+- Copier lien
+- Traduire
+- Sauvegarder
+
+------------------------------------------------------------------------
+
+5. Réponses imbriquées (Threads)
+
+5.1 Fonctionnement
+
+-   Réponses indentées sous le commentaire parent
+-   Ligne verticale reliant les messages
+-   “Voir plus de réponses” si plus de 2 réponses
+-   Fusion visuelle si un même utilisateur envoie plusieurs réponses à
+    la suite
+
+------------------------------------------------------------------------
+
+6. IA intégrée
+
+6.1 Analyse du ton
+
+Si le commentaire semble agressif : > Suggestion de reformulation
+
+6.2 Résumé automatique
+
+Bouton disponible sur un thread : > Résumer la discussion
+
+6.3 Classement intelligent
+
+Les commentaires “Utile”, “Pertinent”, “Expert” remontent
+automatiquement.
+
+------------------------------------------------------------------------
+
+7. Design & UX
+
+7.1 Style
+
+-   Cartes arrondies (14-18px)
+-   Fond semi-translucide (verre dépoli)
+-   Séparateurs doux
+-   Thème SmartOHADA (vert-bleu)
+
+7.2 Typographie
+
+-   Titre : semi-bold
+-   Texte : 14px
+-   Timestamp : 12px
+
+7.3 Animations
+
+-   Burst sur réactions
+-   Smooth fade-in sur nouveaux commentaires
+-   Zoom léger sur médias
+
+------------------------------------------------------------------------
+
+8. Structure Backend
+
+8.1 Modèle Commentaire
+
+    comment: {
+      id,
+      parentId,
+      authorId,
+      contentType: "text" | "audio" | "video" | "gif" | "sticker",
+      content,
+      reactions: {
+        utile: [],
+        pertinent: [],
+        scolaire: [],
+        solidaire: [],
+        expert: []
+      },
+      createdAt,
+      updatedAt
+    }
+
+8.2 Modèle User
+
+    user: {
+      id,
+      name,
+      pseudo,
+      avatar,
+      role,
+      xp
+    }
+
+------------------------------------------------------------------------
+
+9. Règles fonctionnelles
+
+-   Le commentaire vide est refusé
+-   Les GIF lourds doivent être compressés
+-   Les notifications doivent être envoyées lors d’une réponse
+-   Les mentions doivent déclencher un highlight dans le fil
+-   Les chargements doivent afficher un skeleton
+
+------------------------------------------------------------------------
+
+10. Instructions pour IA Replit
+
+-   Générer un code entièrement responsive
+-   Utiliser composants modulaires
+-   Ajouter animations CSS légères
+-   Générer logique JS pour :
+    -   réactions
+    -   threads
+    -   composer multimédia
+-   Fournir une structure claire (components, services, utils)
+
+Fin du fichier.

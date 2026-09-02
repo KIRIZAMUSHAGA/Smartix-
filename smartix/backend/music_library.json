@@ -1,0 +1,49 @@
+{
+  "music": {
+    "ambient-relaxation": {
+      "filename": "ambient_relaxation.mp3",
+      "title": "Ambient Relaxation",
+      "duration": "3:45",
+      "bpm": 60,
+      "mood": "relaxing",
+      "energy": "low",
+      "genre": "ambient"
+    },
+    "upbeat-dance": {
+      "filename": "upbeat_dance.mp3",
+      "title": "Upbeat Dance",
+      "duration": "4:20",
+      "bpm": 128,
+      "mood": "energetic",
+      "energy": "high",
+      "genre": "electronic"
+    },
+    "jazz-evening": {
+      "filename": "jazz_evening.mp3",
+      "title": "Jazz Evening",
+      "duration": "5:12",
+      "bpm": 85,
+      "mood": "sophisticated",
+      "energy": "medium",
+      "genre": "jazz"
+    },
+    "classical-piano": {
+      "filename": "classical_piano.mp3",
+      "title": "Classical Piano",
+      "duration": "6:30",
+      "bpm": 70,
+      "mood": "elegant",
+      "energy": "low",
+      "genre": "classical"
+    },
+    "indie-folk": {
+      "filename": "indie_folk.mp3",
+      "title": "Indie Folk",
+      "duration": "4:05",
+      "bpm": 100,
+      "mood": "contemplative",
+      "energy": "medium",
+      "genre": "folk"
+    }
+  }
+}
