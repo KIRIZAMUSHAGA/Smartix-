@@ -169,8 +169,19 @@ load_dotenv()
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async def background_startup():
+        global _mongo_ready
         try:
-            await init_mongodb()
+            try:
+                await init_mongodb()
+                _mongo_ready = True
+            except Exception as e:
+                logger.error("❌ MongoDB startup failed; database-backed routes disabled: %s", type(e).__name__)
+            finally:
+                _mongo_ready_event.set()
+
+            if not _mongo_ready:
+                return
+
             try:
                 from db import get_collection
                 posts_col = get_collection('posts')
@@ -450,12 +461,37 @@ class UserRegister(BaseModel):
     password: str
     full_name: str
     username: Optional[str] = None
+    school: Optional[str] = None
+    level: Optional[str] = None
+    date_of_birth: Optional[str] = None
+    accept_terms: Optional[bool] = None
+    accept_privacy: Optional[bool] = None
 
 class CheckUsernameRequest(BaseModel):
     username: str
 
 class CheckEmailRequest(BaseModel):
     email: str
+
+_mongo_ready = False
+_mongo_ready_event = asyncio.Event()
+
+async def _require_mongodb():
+    """Wait for startup initialization and fail clearly if MongoDB is unavailable."""
+    if not _mongo_ready_event.is_set():
+        try:
+            await asyncio.wait_for(_mongo_ready_event.wait(), timeout=15)
+        except asyncio.TimeoutError:
+            raise HTTPException(
+                status_code=503,
+                detail="La base de données est encore en cours d'initialisation. Réessaie dans quelques secondes.",
+            )
+
+    if not _mongo_ready:
+        raise HTTPException(
+            status_code=503,
+            detail="Le service d'inscription est temporairement indisponible : la base de données n'est pas connectée.",
+        )
 
 import bcrypt as _bcrypt_lib
 
@@ -480,6 +516,7 @@ async def hash_password(plain_password: str) -> str:
 @app.post("/api/auth/login")
 @app.post("/auth/login")
 async def login(credentials: UserLogin, request: Request):
+    await _require_mongodb()
     users_col = get_collection('users')
     # Normalisation : login insensible à la casse / espaces parasites pour
     # rester cohérent avec /auth/check-email qui normalise déjà l'entrée.
@@ -501,6 +538,7 @@ async def login(credentials: UserLogin, request: Request):
 @app.post("/api/auth/register")
 @app.post("/auth/register")
 async def register(user_data: UserRegister, request: Request):
+    await _require_mongodb()
     users_col = get_collection('users')
 
     # Normalisation email : on stocke et compare toujours en minuscules,
@@ -525,6 +563,18 @@ async def register(user_data: UserRegister, request: Request):
         "avatar": filename,
         "created_at": datetime.now(timezone.utc)
     }
+    optional_fields = {
+        "school": user_data.school,
+        "level": user_data.level,
+        "date_of_birth": user_data.date_of_birth,
+        "accept_terms": user_data.accept_terms,
+        "accept_privacy": user_data.accept_privacy,
+    }
+    new_user.update({
+        key: value
+        for key, value in optional_fields.items()
+        if value is not None and value != ""
+    })
 
     await users_col.insert_one(new_user)
 
@@ -554,6 +604,7 @@ async def check_email(data: CheckEmailRequest):
     - 409 {"available": false} -> email déjà utilisé
     - 400                      -> format invalide ou champ manquant
     """
+    await _require_mongodb()
     email = (data.email or "").strip().lower()
     if not email:
         raise HTTPException(status_code=400, detail="Email requis")

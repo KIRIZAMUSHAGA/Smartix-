@@ -130,7 +130,9 @@ const FinalPage = ({ flow, onLoading }) => {
       setUploadProgress(0);
 
       const additionalData = {
-        school: flow.formData.school || null,
+        school: typeof flow.formData.school === 'object'
+          ? flow.formData.school?.name || null
+          : flow.formData.school || null,
         level: flow.formData.level || null,
         date_of_birth: flow.formData.date_of_birth || null,
         accept_terms: acceptTerms,
@@ -278,9 +280,12 @@ const FinalPage = ({ flow, onLoading }) => {
     }
   };
 
-  const schoolInfo = flow.formData.level && flow.formData.school
-    ? `${flow.formData.level} - ${flow.formData.school}`
-    : flow.formData.level || flow.formData.school || 'Non renseigné';
+  const schoolName = typeof flow.formData.school === 'object'
+    ? flow.formData.school?.name || ''
+    : flow.formData.school || '';
+  const schoolInfo = flow.formData.level && schoolName
+    ? `${flow.formData.level} - ${schoolName}`
+    : flow.formData.level || schoolName || 'Non renseigné';
 
   return (
     <div className="final-page flex flex-col items-center justify-start bg-gradient-to-b from-[#0f172a] to-[#1e293b]">

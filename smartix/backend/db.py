@@ -10,7 +10,7 @@ _raw_mongo_url = os.getenv('MONGO_URL', '')
 if 'mongodb' in _raw_mongo_url:
     MONGO_URL: str = 'mongodb' + _raw_mongo_url.split('mongodb', 1)[1]
 else:
-    MONGO_URL: str = 'mongodb+srv://tolombe352_db_user:kiriza01@cluster0.pmhtdpl.mongodb.net/?appName=Cluster0'
+    MONGO_URL: str = ''
 DB_NAME: str = os.getenv('DB_NAME', 'smartohada')
 
 # Global database instance
@@ -22,6 +22,9 @@ async def init_mongodb() -> bool:
     global _db, _client
 
     try:
+        if not MONGO_URL:
+            raise RuntimeError("MONGO_URL is not configured")
+
         # Tuning client Motor pour éviter les blocages longs en cas de socket
         # idle, de cold start Atlas, ou de dégradation réseau. Les défauts
         # Motor (serverSelectionTimeoutMS=30000) peuvent transformer une
@@ -352,6 +355,10 @@ async def init_mongodb() -> bool:
         return True
 
     except Exception as e:
+        _db = None
+        if _client is not None:
+            _client.close()
+        _client = None
         print(f"❌ MongoDB connection error: {e}")
         raise
 
