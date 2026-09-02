@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Smartix"
+description = "Plateforme francophone pour apprendre, créer, partager et vendre, avec un espace de programmation assistée par IA."
+version = "1.0.0"
+id = "artifacts/smartix"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23837
+
+[services.development]
+run = "cd /home/runner/workspace/smartix/frontend && npm start"
+
+[services.production]
+build = [ "npm", "--prefix", "smartix/frontend", "run", "build" ]
+serve = "static"
+publicDir = "smartix/frontend/build"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23837"
+BASE_PATH = "/"
