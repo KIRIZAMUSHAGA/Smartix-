@@ -89,6 +89,32 @@ const TrendingSection = ({ items = [] }) => {
     }
   };
 
+  const getImageUrl = (item) =>
+    item.image ||
+    item.image_url ||
+    item.thumbnail_url ||
+    item.cover_image ||
+    item.preview_image ||
+    item.thumbnail ||
+    null;
+
+  const getFallbackVisual = (type) => {
+    switch (type) {
+      case 'course':
+        return 'from-orange-500/80 via-rose-500/60 to-slate-950';
+      case 'project':
+        return 'from-blue-600/85 via-purple-500/65 to-slate-950';
+      case 'product':
+        return 'from-emerald-500/80 via-cyan-500/55 to-slate-950';
+      case 'post':
+        return 'from-sky-500/80 via-indigo-500/55 to-slate-950';
+      case 'news':
+        return 'from-amber-500/80 via-orange-500/55 to-slate-950';
+      default:
+        return 'from-slate-600 via-slate-700 to-slate-950';
+    }
+  };
+
   return (
     <div className="max-w-6xl mx-auto px-4 mb-16">
       {/* En-tête */}
@@ -114,6 +140,7 @@ const TrendingSection = ({ items = [] }) => {
         {displayItems.map((item) => {
           const TypeIcon = getTypeIcon(item.type);
           const typeColor = getTypeColor(item.type);
+          const imageUrl = getImageUrl(item);
           
           return (
             <Link to={item.link} key={item.id}>
@@ -121,16 +148,27 @@ const TrendingSection = ({ items = [] }) => {
                 
                 {/* Image/En-tête avec dégradé */}
                 <div 
-                  className="h-32 bg-gradient-to-br from-gray-700 to-gray-900 relative"
-                  style={item.image ? { backgroundImage: `url(${item.image})`, backgroundSize: 'cover' } : {}}
+                  className={`h-32 bg-gradient-to-br ${imageUrl ? 'from-slate-800 to-slate-950' : getFallbackVisual(item.type)} relative overflow-hidden`}
+                  style={imageUrl ? {
+                    backgroundImage: `url(${imageUrl})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  } : undefined}
                 >
+                  {!imageUrl && (
+                    <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                      <div className="absolute -right-5 -bottom-8 h-32 w-32 rounded-full border-[18px] border-white/10" />
+                      <TypeIcon className="absolute -right-3 -bottom-7 h-28 w-28 text-white/20" />
+                      <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
+                    </div>
+                  )}
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent" />
                   
                   {/* Badge de type */}
                   <div className="absolute top-3 left-3">
                     <Badge variant="outline" className="bg-black/50 text-white border-0 backdrop-blur-sm flex items-center gap-1">
-                      <TypeIcon className="w-3 h-3" />
+                      <TypeIcon className={`w-3 h-3 ${typeColor}`} />
                       <span>{getTypeLabel(item.type)}</span>
                     </Badge>
                   </div>

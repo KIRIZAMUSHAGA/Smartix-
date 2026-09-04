@@ -11,6 +11,70 @@ import { Badge } from '../ui/badge';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '../ui/tabs';
 import PropTypes from 'prop-types';
 
+const getProjectImageUrl = (project) =>
+  project.image ||
+  project.image_url ||
+  project.thumbnail_url ||
+  project.cover_image ||
+  project.preview_image ||
+  project.thumbnail ||
+  null;
+
+const getProjectFallbackVisual = (type) => {
+  const normalizedType = (type || '').toLowerCase();
+  if (normalizedType.includes('vue')) {
+    return 'from-emerald-500/80 via-green-500/55 to-slate-950';
+  }
+  if (normalizedType.includes('node') || normalizedType.includes('api')) {
+    return 'from-green-500/80 via-teal-500/55 to-slate-950';
+  }
+  if (normalizedType.includes('mobile') || normalizedType.includes('native')) {
+    return 'from-orange-500/80 via-pink-500/55 to-slate-950';
+  }
+  if (normalizedType.includes('next')) {
+    return 'from-cyan-500/80 via-blue-500/55 to-slate-950';
+  }
+  return 'from-purple-500/80 via-pink-500/55 to-slate-950';
+};
+
+const ProjectCover = ({ project, children }) => {
+  const imageUrl = getProjectImageUrl(project);
+
+  return (
+    <div
+      className={`h-32 bg-gradient-to-br ${imageUrl ? 'from-slate-800 to-slate-950' : getProjectFallbackVisual(project.type)} rounded-t-xl relative overflow-hidden`}
+      style={imageUrl ? {
+        backgroundImage: `url(${imageUrl})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      } : undefined}
+    >
+      {!imageUrl && (
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div className="absolute -right-5 -bottom-8 h-32 w-32 rounded-full border-[18px] border-white/10" />
+          <Code2 className="absolute -right-3 -bottom-7 h-28 w-28 text-white/20" />
+          <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-2xl" />
+        </div>
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/5 to-transparent" />
+      {children}
+    </div>
+  );
+};
+
+ProjectCover.propTypes = {
+  project: PropTypes.shape({
+    type: PropTypes.string,
+    image: PropTypes.string,
+    image_url: PropTypes.string,
+    thumbnail_url: PropTypes.string,
+    cover_image: PropTypes.string,
+    preview_image: PropTypes.string,
+    thumbnail: PropTypes.string,
+  }).isRequired,
+  children: PropTypes.node,
+};
+
 const ProjectsSection = ({ projects = [] }) => {
   // Données de démonstration
   const demoProjects = {
@@ -167,9 +231,9 @@ const ProjectsSection = ({ projects = [] }) => {
             {recentProjects.map((project) => (
               <Link to={`/vibe/projects/${project.id}`} key={project.id}>
                 <Card className="bg-card/60 border border-border/30 hover:bg-card/80 transition-all hover:scale-105 group">
-                  <div className="h-32 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-t-xl relative">
+                  <ProjectCover project={project}>
                     <div className="absolute top-3 right-3">
-                      <Badge variant="outline" className="bg-black/50 text-white border-0">
+                      <Badge variant="outline" className="bg-black/50 text-white border-0 backdrop-blur-sm">
                         {project.type}
                       </Badge>
                     </div>
@@ -177,7 +241,7 @@ const ProjectsSection = ({ projects = [] }) => {
                       <Clock className="w-3 h-3" />
                       <span>Mis à jour récemment</span>
                     </div>
-                  </div>
+                  </ProjectCover>
                   <div className="p-4">
                     <h3 className="font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
                       {project.name}
@@ -203,13 +267,13 @@ const ProjectsSection = ({ projects = [] }) => {
             {popularProjects.map((project) => (
               <Link to={`/vibe/projects/${project.id}`} key={project.id}>
                 <Card className="bg-card/60 border border-border/30 hover:bg-card/80 transition-all hover:scale-105 group">
-                  <div className="h-32 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-t-xl relative">
+                  <ProjectCover project={project}>
                     <div className="absolute top-3 right-3">
                       <Badge variant="outline" className="bg-blue-500/80 text-white border-0">
                         🔥 Populaire
                       </Badge>
                     </div>
-                  </div>
+                  </ProjectCover>
                   <div className="p-4">
                     <h3 className="font-bold text-foreground mb-1 group-hover:text-blue-400 transition-colors">
                       {project.name}

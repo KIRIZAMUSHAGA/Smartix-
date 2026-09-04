@@ -39,6 +39,7 @@ const HeroSection = () => {
             <Link to="/courses">
               <Button 
                 size="lg" 
+                variant="ghost"
                 className="bg-[#ff6b35] hover:bg-[#ff8c61] text-white font-bold px-8 py-6 text-lg rounded-xl transition-all hover:scale-105"
               >
                 <BookOpen className="w-5 h-5 mr-2" />

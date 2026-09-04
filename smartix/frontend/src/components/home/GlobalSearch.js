@@ -91,7 +91,8 @@ const GlobalSearch = () => {
             {/* Bouton de recherche */}
             <Button 
               type="submit" 
-              className="bg-[#ff6b35] hover:bg-[#ff8c61] text-white font-bold px-6 py-3 rounded-xl ml-2"
+              variant="ghost"
+              className="bg-[#ff6b35] hover:bg-[#ff8c61] disabled:bg-[#ff6b35] disabled:text-white text-white font-bold px-6 py-3 rounded-xl ml-2"
               disabled={!searchQuery.trim()}
             >
               Rechercher
