@@ -10,17 +10,20 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import PropTypes from 'prop-types';
 
-const TrendingSection = ({ items = [] }) => {
+const TrendingSection = ({ items = [], showViewAll = true }) => {
   // Données de démonstration si aucune donnée n'est fournie
   const demoItems = [
     {
-      id: '1',
+       id: '1',
       type: 'course',
       title: 'Introduction à React 18',
       subtitle: 'Par Jean Dupont',
       image: null,
       stats: { views: 1234, likes: 89, comments: 23 },
-      link: '/courses/1'
+       trend: 59,
+       ageLabel: 'Il y a 2h',
+       interactions: 24,
+       link: '/courses/1'
     },
     {
       id: '2',
@@ -29,7 +32,10 @@ const TrendingSection = ({ items = [] }) => {
       subtitle: 'Projet React + API',
       image: null,
       stats: { views: 3456, likes: 234, downloads: 56 },
-      link: '/vibe/projects/2'
+       trend: 31,
+       ageLabel: 'Il y a 5h',
+       interactions: 43,
+       link: '/vibe/projects'
     },
     {
       id: '3',
@@ -38,7 +44,10 @@ const TrendingSection = ({ items = [] }) => {
       subtitle: 'Admin panel responsive',
       image: null,
       stats: { views: 567, downloads: 89, rating: 4.8 },
-      link: '/smartix-store/3'
+       trend: 42,
+       ageLabel: 'Il y a 6h',
+       interactions: 18,
+       link: '/marketplace'
     },
     {
       id: '4',
@@ -47,7 +56,10 @@ const TrendingSection = ({ items = [] }) => {
       subtitle: 'Discussion communautaire',
       image: null,
       stats: { likes: 456, comments: 78, shares: 23 },
-      link: '/feed/4'
+       trend: 27,
+       ageLabel: 'Il y a 8h',
+       interactions: 36,
+       link: '/feed'
     }
   ];
 
@@ -90,8 +102,13 @@ const TrendingSection = ({ items = [] }) => {
   };
 
   const getImageUrl = (item) =>
+    item.coverImage ||
+    item.cover_image ||
+    item.coverUrl ||
     item.image ||
     item.image_url ||
+    item.image_thumbnail_url ||
+    item.image_original_url ||
     item.thumbnail_url ||
     item.cover_image ||
     item.preview_image ||
@@ -128,11 +145,13 @@ const TrendingSection = ({ items = [] }) => {
             <p className="text-sm text-muted-foreground">Ce qui est populaire en ce moment</p>
           </div>
         </div>
-        <Link to="/trending">
-          <Button variant="ghost" className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 font-bold">
-            Voir tout <ArrowRight className="w-4 h-4 ml-1" />
-          </Button>
-        </Link>
+        {showViewAll && (
+          <Link to="/trending">
+            <Button variant="ghost" className="text-orange-400 hover:text-orange-300 hover:bg-orange-500/10 font-bold">
+              Voir tout <ArrowRight className="w-4 h-4 ml-1" />
+            </Button>
+          </Link>
+        )}
       </div>
 
       {/* Grille des tendances */}
@@ -141,6 +160,8 @@ const TrendingSection = ({ items = [] }) => {
           const TypeIcon = getTypeIcon(item.type);
           const typeColor = getTypeColor(item.type);
           const imageUrl = getImageUrl(item);
+          const stats = item.stats || {};
+          const trend = item.trend ?? 20;
           
           return (
             <Link to={item.link} key={item.id}>
@@ -177,7 +198,7 @@ const TrendingSection = ({ items = [] }) => {
                   <div className="absolute bottom-3 right-3">
                     <div className="flex items-center gap-1 text-white/80 text-xs">
                       <TrendingUp className="w-3 h-3" />
-                      <span>+{Math.floor(Math.random() * 50) + 20}%</span>
+                      <span>+{trend}%</span>
                     </div>
                   </div>
                 </div>
@@ -196,29 +217,29 @@ const TrendingSection = ({ items = [] }) => {
 
                   {/* Statistiques */}
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                    {item.stats.views !== undefined && (
+                    {stats.views !== undefined && (
                       <span className="flex items-center gap-1">
-                        <Eye className="w-3 h-3" /> {item.stats.views.toLocaleString()}
+                        <Eye className="w-3 h-3" /> {stats.views.toLocaleString()}
                       </span>
                     )}
-                    {item.stats.likes !== undefined && (
+                    {stats.likes !== undefined && (
                       <span className="flex items-center gap-1">
-                        <ThumbsUp className="w-3 h-3" /> {item.stats.likes}
+                        <ThumbsUp className="w-3 h-3" /> {stats.likes}
                       </span>
                     )}
-                    {item.stats.downloads !== undefined && (
+                    {stats.downloads !== undefined && (
                       <span className="flex items-center gap-1">
-                        <Download className="w-3 h-3" /> {item.stats.downloads}
+                        <Download className="w-3 h-3" /> {stats.downloads}
                       </span>
                     )}
-                    {item.stats.comments !== undefined && (
+                    {stats.comments !== undefined && (
                       <span className="flex items-center gap-1">
-                        <MessageSquare className="w-3 h-3" /> {item.stats.comments}
+                        <MessageSquare className="w-3 h-3" /> {stats.comments}
                       </span>
                     )}
-                    {item.stats.rating !== undefined && (
+                    {stats.rating !== undefined && (
                       <span className="flex items-center gap-1">
-                        <Star className="w-3 h-3 text-yellow-400" /> {item.stats.rating}
+                        <Star className="w-3 h-3 text-yellow-400" /> {stats.rating}
                       </span>
                     )}
                   </div>
@@ -226,9 +247,9 @@ const TrendingSection = ({ items = [] }) => {
                   {/* Métadonnées supplémentaires */}
                   <div className="mt-3 flex items-center gap-2 text-[10px] text-muted-foreground">
                     <Clock className="w-3 h-3" />
-                    <span>Il y a {Math.floor(Math.random() * 12) + 1}h</span>
+                    <span>{item.ageLabel || 'Mis à jour récemment'}</span>
                     <Users className="w-3 h-3 ml-2" />
-                    <span>{Math.floor(Math.random() * 50) + 10} interactions</span>
+                    <span>{item.interactions ?? '—'} interactions</span>
                   </div>
                 </div>
               </Card>
@@ -264,9 +285,13 @@ TrendingSection.propTypes = {
         comments: PropTypes.number,
         rating: PropTypes.number
       }),
-      link: PropTypes.string.isRequired
+       link: PropTypes.string.isRequired,
+       trend: PropTypes.number,
+       ageLabel: PropTypes.string,
+       interactions: PropTypes.number
     })
-  )
+  ),
+  showViewAll: PropTypes.bool
 };
 
 export default TrendingSection;

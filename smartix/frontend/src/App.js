@@ -70,6 +70,7 @@ import Landing from './pages/Landing/Landing';
 import AboutPage from './pages/About/AboutPage';
 import VisionTeamPage from './pages/About/VisionTeamPage';
 import Home from './pages/Home.js';
+import Trending from './pages/Trending.js';
 import Feed from './pages/Feed';
 import Explore from './pages/Explore';
 import Favorites from './pages/Favorites';
@@ -192,6 +193,7 @@ const routeConfig = [
   
   // Routes protégées existantes
   { path: "/home", element: <Home />, auth: true },
+  { path: "/trending", element: <Trending />, auth: true },
   { path: "/favorites", element: <Favorites />, auth: true },
   { path: "/feed", element: <Feed />, auth: true },
   { path: "/ai", element: <AIChat />, auth: true },

@@ -229,7 +229,7 @@ const ProjectsSection = ({ projects = [] }) => {
         <TabsContent value="recent">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {recentProjects.map((project) => (
-              <Link to={`/vibe/projects/${project.id}`} key={project.id}>
+              <Link to={project.homeLink || `/vibe/projects/${project.id}`} key={project.id}>
                 <Card className="bg-card/60 border border-border/30 hover:bg-card/80 transition-all hover:scale-105 group">
                   <ProjectCover project={project}>
                     <div className="absolute top-3 right-3">
@@ -265,7 +265,7 @@ const ProjectsSection = ({ projects = [] }) => {
         <TabsContent value="popular">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {popularProjects.map((project) => (
-              <Link to={`/vibe/projects/${project.id}`} key={project.id}>
+              <Link to={project.homeLink || `/vibe/projects/${project.id}`} key={project.id}>
                 <Card className="bg-card/60 border border-border/30 hover:bg-card/80 transition-all hover:scale-105 group">
                   <ProjectCover project={project}>
                     <div className="absolute top-3 right-3">
