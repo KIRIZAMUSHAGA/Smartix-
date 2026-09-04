@@ -94,7 +94,7 @@ export const useHomeData = (user, client) => {
       setIsRefreshing(false);
       setLoading(false);
     }
-  }, [user, client]);
+  }, [user?.id, client]);
 
   useEffect(() => {
     if (user && client) {

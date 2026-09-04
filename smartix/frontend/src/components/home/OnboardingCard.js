@@ -22,6 +22,7 @@ const OnboardingCard = ({ onComplete, user }) => {
   const [completedSteps, setCompletedSteps] = useState(initialCompletedSteps);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState(null);
+  const [isVisible, setIsVisible] = useState(true);
 
   // Étapes de l'onboarding
   const steps = [
@@ -117,18 +118,28 @@ const OnboardingCard = ({ onComplete, user }) => {
   const handleStepComplete = async (stepId, destination = null) => {
     if (isSaving) return;
 
+    const previousStep = currentStep;
+    const previousCompletedSteps = completedSteps;
     const nextCompletedSteps = {
       ...completedSteps,
       [stepId]: true,
     };
     const isLastStep = stepId === totalSteps;
+    const nextStep = isLastStep ? stepId : stepId + 1;
 
+    // Mise à jour immédiate de l'interface. La requête serveur confirme
+    // ensuite l'action, et l'état local est restauré en cas d'échec.
+    setCompletedSteps(nextCompletedSteps);
+    setCurrentStep(nextStep);
+    if (isLastStep) {
+      setIsVisible(false);
+    }
     setIsSaving(true);
     setError(null);
 
     try {
       const updatedUser = await persistProgress({
-        nextStep: isLastStep ? stepId : stepId + 1,
+        nextStep,
         nextCompletedSteps,
         hasSeenOnboarding: isLastStep,
         status: isLastStep ? 'completed' : 'in_progress',
@@ -141,6 +152,9 @@ const OnboardingCard = ({ onComplete, user }) => {
       }
     } catch (saveError) {
       console.error('Erreur de sauvegarde de l’onboarding:', saveError);
+      setCurrentStep(previousStep);
+      setCompletedSteps(previousCompletedSteps);
+      setIsVisible(true);
       setError('Impossible d’enregistrer votre progression. Vérifiez votre connexion puis réessayez.');
     } finally {
       setIsSaving(false);
@@ -150,6 +164,9 @@ const OnboardingCard = ({ onComplete, user }) => {
   const handleDismiss = async () => {
     if (isSaving) return;
 
+    // La fermeture ne doit pas provoquer de skeleton ou d'attente visuelle.
+    // Elle sera restaurée si le serveur refuse l'enregistrement.
+    setIsVisible(false);
     setIsSaving(true);
     setError(null);
 
@@ -163,6 +180,7 @@ const OnboardingCard = ({ onComplete, user }) => {
       onComplete?.(updatedUser);
     } catch (saveError) {
       console.error('Erreur de fermeture de l’onboarding:', saveError);
+      setIsVisible(true);
       setError('Impossible de fermer définitivement ce parcours. Vérifiez votre connexion puis réessayez.');
     } finally {
       setIsSaving(false);
@@ -171,6 +189,10 @@ const OnboardingCard = ({ onComplete, user }) => {
 
   const currentStepData = steps[currentStep - 1];
   const CurrentIcon = currentStepData.icon;
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-24 left-4 right-4 md:left-auto md:right-8 md:w-96 z-50 animate-slide-up">
