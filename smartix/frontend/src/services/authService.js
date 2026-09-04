@@ -400,6 +400,42 @@ export const fetchCurrentUser = async () => {
 };
 
 /**
+ * Persiste la progression de l'onboarding dans le compte courant.
+ * Le backend renvoie l'utilisateur complet afin de synchroniser AuthContext
+ * et le stockage de session avec la valeur MongoDB.
+ */
+export const updateOnboardingProgress = async ({
+  currentStep,
+  completedSteps,
+  hasSeenOnboarding = false,
+  status = 'in_progress',
+}) => {
+  const token = getAccessToken();
+  if (!token) {
+    throw new Error('Session utilisateur manquante');
+  }
+
+  updateAuthHeader(token);
+
+  const response = await authApi.put('/api/auth/me/onboarding', {
+    currentStep,
+    completedSteps,
+    hasSeenOnboarding,
+    status,
+  }, {
+    timeout: 15000,
+  });
+
+  const updatedUser = response.data?.user;
+  if (!updatedUser?.id) {
+    throw new Error('Réponse utilisateur invalide après la mise à jour de l’onboarding');
+  }
+
+  setCurrentUser(updatedUser);
+  return updatedUser;
+};
+
+/**
  * Initialise la session au démarrage
  */
 export const initializeAuth = async () => {

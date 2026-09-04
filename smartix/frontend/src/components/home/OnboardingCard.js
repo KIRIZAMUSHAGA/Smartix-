@@ -1,18 +1,27 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
-  X, BookOpen, Code2, Users, ShoppingBag, Newspaper,
-  CheckCircle, ArrowRight, Rocket, Sparkles,
-  ChevronRight, Play, Download, Award
+  X, BookOpen, Code2, Users, ShoppingBag,
+  CheckCircle, ArrowRight, Rocket, Sparkles
 } from 'lucide-react';
 import { Card } from '../ui/card';
 import { Button } from '../ui/button';
-import { Progress } from '../ui/progress';
 import PropTypes from 'prop-types';
+import { updateOnboardingProgress } from '../../services/authService';
 
 const OnboardingCard = ({ onComplete, user }) => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [completedSteps, setCompletedSteps] = useState({});
+  const navigate = useNavigate();
+  const storedProgress = user?.onboardingProgress || {};
+  const initialCompletedSteps = (storedProgress.completedSteps || []).reduce(
+    (completed, stepId) => ({ ...completed, [stepId]: true }),
+    {}
+  );
+  const [currentStep, setCurrentStep] = useState(
+    Math.min(Math.max(Number(storedProgress.currentStep) || 1, 1), 5)
+  );
+  const [completedSteps, setCompletedSteps] = useState(initialCompletedSteps);
+  const [isSaving, setIsSaving] = useState(false);
+  const [error, setError] = useState(null);
 
   // Étapes de l'onboarding
   const steps = [
@@ -70,26 +79,93 @@ const OnboardingCard = ({ onComplete, user }) => {
   const totalSteps = steps.length;
   const progress = (Object.keys(completedSteps).length / totalSteps) * 100;
 
-  const handleStepComplete = (stepId) => {
-    setCompletedSteps(prev => ({
-      ...prev,
-      [stepId]: true
-    }));
+  const persistProgress = useCallback(async ({
+    nextStep,
+    nextCompletedSteps,
+    hasSeenOnboarding,
+    status,
+  }) => {
+    if (!user?.id) {
+      throw new Error('Utilisateur non identifié');
+    }
 
-    if (stepId < totalSteps) {
-      setCurrentStep(stepId + 1);
+    const updatedUser = await updateOnboardingProgress({
+      currentStep: nextStep,
+      completedSteps: Object.keys(nextCompletedSteps)
+        .map(Number)
+        .sort((a, b) => a - b),
+      hasSeenOnboarding,
+      status,
+    });
+
+    const persistedProgress = updatedUser.onboardingProgress;
+    if (persistedProgress) {
+      setCurrentStep(
+        Math.min(Math.max(Number(persistedProgress.currentStep) || nextStep, 1), totalSteps)
+      );
+      setCompletedSteps(
+        (persistedProgress.completedSteps || []).reduce(
+          (completed, stepId) => ({ ...completed, [stepId]: true }),
+          {}
+        )
+      );
+    }
+
+    return updatedUser;
+  }, [totalSteps, user?.id]);
+
+  const handleStepComplete = async (stepId, destination = null) => {
+    if (isSaving) return;
+
+    const nextCompletedSteps = {
+      ...completedSteps,
+      [stepId]: true,
+    };
+    const isLastStep = stepId === totalSteps;
+
+    setIsSaving(true);
+    setError(null);
+
+    try {
+      const updatedUser = await persistProgress({
+        nextStep: isLastStep ? stepId : stepId + 1,
+        nextCompletedSteps,
+        hasSeenOnboarding: isLastStep,
+        status: isLastStep ? 'completed' : 'in_progress',
+      });
+
+      if (isLastStep) {
+        onComplete?.(updatedUser);
+      } else if (destination) {
+        navigate(destination);
+      }
+    } catch (saveError) {
+      console.error('Erreur de sauvegarde de l’onboarding:', saveError);
+      setError('Impossible d’enregistrer votre progression. Vérifiez votre connexion puis réessayez.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  const handleSkip = () => {
-    if (onComplete) {
-      onComplete();
-    }
-  };
+  const handleDismiss = async () => {
+    if (isSaving) return;
 
-  const handleComplete = () => {
-    if (onComplete) {
-      onComplete();
+    setIsSaving(true);
+    setError(null);
+
+    try {
+      const updatedUser = await persistProgress({
+        nextStep: currentStep,
+        nextCompletedSteps: completedSteps,
+        hasSeenOnboarding: true,
+        status: 'dismissed',
+      });
+      onComplete?.(updatedUser);
+    } catch (saveError) {
+      console.error('Erreur de fermeture de l’onboarding:', saveError);
+      setError('Impossible de fermer définitivement ce parcours. Vérifiez votre connexion puis réessayez.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -109,7 +185,9 @@ const OnboardingCard = ({ onComplete, user }) => {
 
         {/* Bouton fermer */}
         <button
-          onClick={handleSkip}
+          onClick={handleDismiss}
+          disabled={isSaving}
+          aria-label="Fermer l’onboarding"
           className="absolute top-3 right-3 p-1 hover:bg-card/80 rounded-full transition-colors z-10"
         >
           <X className="w-4 h-4 text-muted-foreground" />
@@ -173,38 +251,36 @@ const OnboardingCard = ({ onComplete, user }) => {
 
           {/* Actions */}
           <div className="space-y-3">
-            {currentStepData.path ? (
-              <Link to={currentStepData.path} onClick={() => handleStepComplete(currentStep)}>
-                <Button className="w-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c61] hover:from-[#ff8c61] hover:to-[#ff6b35] text-white font-bold py-6 transition-all hover:scale-105">
-                  {currentStepData.action}
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
-              </Link>
-            ) : (
-              <Button 
-                className="w-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c61] hover:from-[#ff8c61] hover:to-[#ff6b35] text-white font-bold py-6"
-                onClick={() => handleStepComplete(currentStep)}
-              >
-                {currentStepData.action}
-              </Button>
-            )}
+            <Button
+              type="button"
+              disabled={isSaving}
+              className="w-full bg-gradient-to-r from-[#ff6b35] to-[#ff8c61] hover:from-[#ff8c61] hover:to-[#ff6b35] text-white font-bold py-6 transition-all hover:scale-105 disabled:cursor-wait disabled:opacity-70"
+              onClick={() => handleStepComplete(currentStep, currentStepData.path)}
+            >
+              {isSaving ? 'Enregistrement...' : currentStepData.action}
+              {!isSaving && <ArrowRight className="w-4 h-4 ml-2" />}
+            </Button>
 
             {/* Boutons additionnels selon l'étape */}
             {currentStep === 1 && (
               <Button 
+                type="button"
                 variant="outline" 
+                disabled={isSaving}
                 className="w-full border-[#ff6b35]/30 text-[#ff6b35] hover:bg-[#ff6b35]/10"
-                onClick={() => handleStepComplete(1)}
+                onClick={handleDismiss}
               >
-                Découvrir plus tard
+                Revenir plus tard
               </Button>
             )}
 
             {currentStep === totalSteps && (
               <Button 
+                type="button"
                 variant="outline" 
+                disabled={isSaving}
                 className="w-full border-green-500/30 text-green-400 hover:bg-green-500/10"
-                onClick={handleComplete}
+                onClick={() => handleStepComplete(currentStep)}
               >
                 Terminer l'onboarding
                 <CheckCircle className="w-4 h-4 ml-2" />
@@ -220,6 +296,12 @@ const OnboardingCard = ({ onComplete, user }) => {
                 {totalSteps - currentStep} étape{totalSteps - currentStep > 1 ? 's' : ''} restante{totalSteps - currentStep > 1 ? 's' : ''}
               </span>
             </div>
+          )}
+
+          {error && (
+            <p className="mt-4 text-center text-xs text-red-400" role="alert">
+              {error}
+            </p>
           )}
         </div>
 

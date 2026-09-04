@@ -147,7 +147,7 @@ const Home = () => {
       <CreatorEconomy stats={creatorStats} />
       <WeeklyChallenges challenges={weeklyChallenges} />
       
-      {!user?.hasSeenOnboarding && <OnboardingCard />}
+       {!user?.hasSeenOnboarding && <OnboardingCard user={user} />}
       
       <BottomNav />
     </div>

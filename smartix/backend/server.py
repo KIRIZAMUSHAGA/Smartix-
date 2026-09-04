@@ -2,7 +2,7 @@ import os
 import asyncio
 from openai import OpenAI
 from datetime import datetime, timezone, timedelta
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Literal
 from fastapi import FastAPI, Depends, HTTPException, Body, APIRouter, UploadFile, File, Request, Response, Query
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -467,6 +467,12 @@ class UserRegister(BaseModel):
     accept_terms: Optional[bool] = None
     accept_privacy: Optional[bool] = None
 
+class OnboardingProgressUpdate(BaseModel):
+    currentStep: int = Field(..., ge=1, le=5)
+    completedSteps: List[int] = Field(default_factory=list)
+    hasSeenOnboarding: bool = False
+    status: Literal["in_progress", "dismissed", "completed"] = "in_progress"
+
 class CheckUsernameRequest(BaseModel):
     username: str
 
@@ -561,6 +567,12 @@ async def register(user_data: UserRegister, request: Request):
         "full_name": user_data.full_name,
         "hashed_password": hashed_password,
         "avatar": filename,
+        "hasSeenOnboarding": False,
+        "onboardingProgress": {
+            "currentStep": 1,
+            "completedSteps": [],
+            "status": "in_progress",
+        },
         "created_at": datetime.now(timezone.utc)
     }
     optional_fields = {
@@ -625,6 +637,61 @@ async def check_email(data: CheckEmailRequest):
 @app.get("/auth/me")
 async def get_me(current_user: dict = Depends(get_current_user)):
     return {"user": {k: v for k, v in current_user.items() if k not in ["hashed_password", "_id"]}}
+
+@app.put("/api/auth/me/onboarding")
+@app.put("/auth/me/onboarding")
+async def update_onboarding_progress(
+    progress: OnboardingProgressUpdate,
+    current_user: dict = Depends(get_current_user),
+):
+    """Persist the onboarding state on the authenticated user's account."""
+    await _require_mongodb()
+
+    invalid_steps = [
+        step for step in progress.completedSteps
+        if step < 1 or step > 5
+    ]
+    if invalid_steps:
+        raise HTTPException(
+            status_code=422,
+            detail="Les étapes complétées doivent être comprises entre 1 et 5.",
+        )
+
+    completed_steps = sorted(set(progress.completedSteps))
+    has_seen_onboarding = progress.hasSeenOnboarding or progress.status in {
+        "dismissed",
+        "completed",
+    }
+    onboarding_progress = {
+        "currentStep": progress.currentStep,
+        "completedSteps": completed_steps,
+        "status": progress.status,
+        "updatedAt": datetime.now(timezone.utc),
+    }
+
+    users_col = get_collection("users")
+    await users_col.update_one(
+        {"id": current_user["id"]},
+        {
+            "$set": {
+                "hasSeenOnboarding": has_seen_onboarding,
+                "onboardingProgress": onboarding_progress,
+                "updated_at": datetime.now(timezone.utc),
+            }
+        },
+    )
+
+    updated_user = await users_col.find_one({"id": current_user["id"]})
+    if not updated_user:
+        raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
+
+    return {
+        "user": {
+            key: value
+            for key, value in updated_user.items()
+            if key not in ("hashed_password", "_id")
+        }
+    }
 
 
 # ============================================================================
@@ -942,6 +1009,12 @@ async def google_oauth_callback(request: Request, code: Optional[str] = None,
             "google_id": google_sub,
             "avatar": picture or f"{user_id}.jpg",
             "providers": ["google"],
+            "hasSeenOnboarding": False,
+            "onboardingProgress": {
+                "currentStep": 1,
+                "completedSteps": [],
+                "status": "in_progress",
+            },
             "created_at": datetime.now(timezone.utc),
         }
         # Pas de hashed_password : ce compte ne peut se connecter que via Google
@@ -1026,6 +1099,12 @@ async def phone_verify_code(payload: PhoneVerifyCodeRequest, request: Request):
             "full_name": payload.full_name or "",
             "avatar": f"{user_id}.jpg",
             "providers": ["phone"],
+            "hasSeenOnboarding": False,
+            "onboardingProgress": {
+                "currentStep": 1,
+                "completedSteps": [],
+                "status": "in_progress",
+            },
             "created_at": datetime.now(timezone.utc),
         }
         await users_col.insert_one(new_user)

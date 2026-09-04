@@ -2,3 +2,4 @@
 - [Smartix preview routing](smartix-preview-routing.md) — the frontend must be registered as a root web artifact, not only as a regular workflow.
 - [MongoDB URI sanitization](mongo-uri-sanitization.md) — Atlas URIs copied from chat may need credential escaping and invisible-character cleanup.
 - [Smartix WebSocket routing](smartix-websocket-routing.md) — reserve a separate CRA hot-reload path because the backend owns `/ws`.
+- [Smartix onboarding persistence](smartix-onboarding-persistence.md) — onboarding dismissal and progress belong to the authenticated account, not browser-only state.
